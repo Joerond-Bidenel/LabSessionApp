@@ -1,74 +1,141 @@
-import { Image, StyleSheet, Platform } from 'react-native';
 
+import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity} from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import RNPickerSelect from 'react-native-picker-select'
 
-export default function HomeScreen() {
+export default function index() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+
+    <ScrollView style={styles.background}>
+
+      <View style={styles.HeaderSection}>
+        <Text style={styles.TextHeader}>SDM Design Patterns Lab Session</Text>
+        <Text style={styles.SubText}>Nathan Ross - UG4 Honours Project</Text>
+      </View>
+
+  
+{/* Main Text Section. Introduces session. Buttons to start */}
+      <View style={styles.TextSection}>
+        <Text style={styles.TextHeader}>Overview</Text>
+
+        <Text style={styles.TextParagraph}>
+          In this session we will be discussing Design Patterns, which are solutions to commonly occurring software design problems. 
+          Think of them like a plan (not a blueprint) for describing the interaction between classes in your code.
+        </Text>
+        
+        <Text style={styles.TextParagraph}>
+          In class so far you have looked at patterns and their UML diagrams. In this session we hope to get a little more hands-on by refactoring 
+          some simple code to show how patterns are implemented, and also when you might want to use or avoid them.
+        </Text>
+
+        <Text style={styles.TextParagraph}>
+          The session requires you to draw some UML diagrams, so have a tool ready. I like "draw.io", but you could use any - even pen and paper is enough here.
+        </Text>
+
+        <Text style={styles.TextParagraph}>
+          You will also need to write some Java code and run some tests. Have an IDE or text editor ready. 
+        </Text>
+
+
+      </View>
+
+      {/* Survey Information*/}
+      <View style={styles.TextSection}>
+        <Text style={styles.TextHeader}>Project Research</Text>
+
+        <Text style={styles.TextParagraph}>
+          This Lab Session was created for my Year 4 Honours Project "Pedagogically Sensible Lab Sessions for Software Design and Modelling", and as such
+          I am running a post-session questionnaire on the Lab Session and its content.
+        </Text>
+        
+        <Text style={styles.TextParagraph}>
+          Its perfectly fine if you want to try out the session without doing the survey, but it would really help if you could take 5 minutes or so to give your thoughts
+          on the session. Thank you for participating! 
+        </Text>
+
+        <Text style={styles.TextParagraph}>
+          You will also need to write some Java code and run some tests. Have an IDE or text editor ready. 
+        </Text>
+
+
+      </View>
+      
+      
+
+    </ScrollView>
+
+
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  background: {
+    backgroundColor: "grey",
+  },
+
+  HeaderSection:{
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'center',
+    color: 'blue',
+    minHeight: 150,
+
+    borderStyle: 'solid',
+    borderBottomWidth: 5,
+    borderColor: 'white',
+    borderRadius: 3,
+    borderWidth: 0,
+
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+
+  TextSection:{
+    margin: 20,
+    color: 'blue',
+    minHeight: 20,
+
+    padding:10,
+
+    borderStyle: 'solid',
+    borderLeftWidth: 5,
+    borderColor: 'white',
+    borderRadius: 2,
+    borderWidth: 0,
+    marginTop: 5
+
+
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+
+  TextHeader:{
+    color: '#6ab3ff',
+    fontSize: 40,
+    fontWeight: '500',
+    margin: 2,
+    
   },
+
+  SubText:{
+    color: '#6ab3ff',
+    fontWeight: '500',
+    textAlign: 'center',
+    paddingHorizontal: 5
+  },
+
+  TextParagraph:{
+    color: '#6ab3ff',
+    fontWeight: '500',
+    paddingHorizontal: 5,
+    margin: 10,
+  },
+
+  Line:{
+    borderStyle: 'solid',
+    borderColor: 'white',
+    borderRadius: 2,
+    borderWidth: 4,
+    marginTop: 5
+  },
+  
 });
