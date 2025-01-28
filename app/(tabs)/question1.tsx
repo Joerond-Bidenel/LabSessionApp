@@ -1,14 +1,13 @@
 
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity, ScrollView} from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import RNPickerSelect from 'react-native-picker-select'
 import {useNavigation, createStaticNavigation} from '@react-navigation/native';
 
-export default function index() {
+export default function question1() {
 
   const navigation = useNavigation();
 
@@ -32,28 +31,28 @@ export default function index() {
         <View style={styles.textContainer2}>
           <Text style={styles.TextParagraph}>
             Suppose you have a library, with many books, copies of those books, and many customers that want to lend them. Customers are, of course
-            very interested in their own specific books, and the library only has so many copies, so there may be a waiting list.
+            very interested in their own specific books, and the library only has so many copies, so there may be a waiting list.{"\n"}
 
             You don't want customers to have to come to the library  every day to check availability, because they might waste many trips without
-            the book being ready.
+            the book being ready.{"\n"}
 
             Likewise, you don't want to alert everyone in the library system that "50 shades of Gray" is back in stock, because not everyone wants
             - or needs - to know this information.
 
-            <br></br><br></br>
+            {"\n"}{"\n"}
 
             This is a prime application of the OBSERVER design pattern. Our customers -
             called observers - can be alerted about a specific book - called a subject. The observer pattern can be created for each book, so
             each customer can be on the list for only books they are interested in.
 
-            <br></br><br></br>
+            {"\n"}{"\n"}
 
             There are many other obvious applications of the observer pattern - Youtube Subscriptions, social media feeds, mailing lists,
-            online auctions et cetera.<br/>
+            online auctions et cetera.{"\n"}
             Also think about more abstract applications. When a gaming PC goes on sleep mode, it's monitors, speakers, lights, and fans are
             observers, waiting on the keyboard, mouse, or power button Subjects to be pressed before turning on again.
 
-            <br></br><br></br>
+            {"\n"}{"\n"}
 
             Your task in this section will be to implement the observer pattern to the example library system - described by the
             UML below. Familiarise yourself with the diagram and set up the example code, then head to the next question.
@@ -73,11 +72,11 @@ export default function index() {
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.buttonGo} onPress={ () => {this.navigation.navigate('docs')}}>
+          <TouchableOpacity style={styles.buttonGo} onPress={ () => {navigation.navigate('docs')}}>
             <Text style={styles.buttonText}>Help</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonHelp} onPress={ () => {this.navigation.navigate('question1_1')}}>
+          <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('multipleChoice', {number: 0, name: "amongus"});}}>
             <Text style={styles.buttonText}>Next Question</Text>
           </TouchableOpacity>
         </View>

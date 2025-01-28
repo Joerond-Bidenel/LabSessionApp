@@ -1,10 +1,6 @@
 
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity, ScrollView} from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import RNPickerSelect from 'react-native-picker-select'
 import {useNavigation, createStaticNavigation} from '@react-navigation/native';
 
@@ -21,59 +17,50 @@ export default function docs() {
         <Text style={styles.SubText}>Nathan Ross - UG4 Honours Project</Text>
       </View>
 
+        <TouchableOpacity style={styles.buttonBack} onPress={ ()=> {this.navigation.back()}}>
+          <Text style={styles.buttonText}>&lt;- Back To Homepage</Text>
+        </TouchableOpacity>
   
 {/* Main Text Section. Introduces session. Buttons to start */}
       <View style={styles.TextSection}>
-        <Text style={styles.TextHeader}>Question 1 - Design and Implement the Observer Pattern</Text>
+        <Text style={styles.TextHeader}>Materials and Resources</Text>
 
-        <View style={styles.textContainer2}>
-          <Text style={styles.TextParagraph}>
-            Suppose you have a library, with many books, copies of those books, and many customers that want to lend them. Customers are, of course
-            very interested in their own specific books, and the library only has so many copies, so there may be a waiting list.
+        {/*Location of Repository, including questions as worksheets/PDFs*/}
+        <Text style={styles.TextParagraph}>
+          This session uses this website to deliver the questions, but the materials are all available on a repository located
+          here:
+          <br/>
+          This also includes the questions and answers as PDFs in the event that the website is unavailable, or doesn't work as expected on
+          your machine. This will provide the session in a less fun and interactive way, but you should still learn some things!
+        </Text>
 
-            You don't want customers to have to come to the library  every day to check availability, because they might waste many trips without
-            the book being ready.
-
-            Likewise, you don't want to alert everyone in the library system that "50 shades of Gray" is back in stock, because not everyone wants
-            - or needs - to know this information.
-
-            <br></br><br></br>
-
-            This is a prime application of the OBSERVER design pattern. This gives us a structure where our customers -
-            called observers - can be alerted about a specific book - called a subject. The observer pattern can be created for each book, so
-            each customer can be on the list for only books they are interested in.
-
-            <br></br><br></br>
-
-            Think of other similar systems that could use the observer pattern - Youtube Subscriptions, social media feeds, mailing lists,
-            online auctions et cetera.
-
-            <br></br><br></br>
-
-            Also think about more abstract applications. When a gaming PC goes on sleep mode, it's monitors, speakers, lights, and fans are
-            observers, waiting on the keyboard, mouse, or power button Subjects to be pressed before turning on again.
-
-          </Text>
-
-          <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../images/ObserverReGuru.png")}/>
-            <Text style={styles.FigureSubText}>Observer Pattern UML - Source: Refactoring.Guru</Text>
-          </View>
-
-        </View>
+        {/*Location of some helpful materials, like ReGuru etc*/}
+        <Text style={styles.TextParagraph}>
+          There are many available resources to learn about patterns if you are stuck:
+          <br/>
+          Refactoring Guru (Refactoring.guru) has a description, explaination, and implementation of many design patterns.
+          <br/>
+          The SDM opencourse page has the lecture slides, and some helpful links
+          <br/>
+          Wikipedia has fairly accurate information about design patterns
+          <br/>
 
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={ () => {navigation.navigate('question1_1')}}>
-            <Text style={styles.buttonText}>Help</Text>
-          </TouchableOpacity>
+        </Text>
 
-          <TouchableOpacity style={styles.button} onPress={ () => {navigation.navigate('docs')}}>
-            <Text style={styles.buttonText}>Next Question</Text>
-          </TouchableOpacity>
-        </View>
+        {/*Names of some tools etc for the session/course*/}
+        <Text style={styles.TextParagraph}>
+          Hello World
+        </Text>
 
       </View>
+
+
+
+
+
+
+
     </ScrollView>
 
 
@@ -96,7 +83,20 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: 3,
     borderWidth: 0,
+  },
 
+  HeaderSectionRow:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'blue',
+    minHeight: 150,
+
+    flexDirection: "row",
+    borderStyle: 'solid',
+    borderBottomWidth: 5,
+    borderColor: 'white',
+    borderRadius: 3,
+    borderWidth: 0,
   },
 
   TextSection:{
@@ -131,21 +131,17 @@ const styles = StyleSheet.create({
   TextParagraph:{
     color: '#6ab3ff',
     fontWeight: '500',
-
+    fontSize: 18,
     paddingHorizontal: 5,
     margin: 10,
-    maxWidth:600,
-
+    maxWidth:700,
     textAlign:"left",
     justifyContent:"center",
-
     borderStyle: 'solid',
     borderLeftWidth: 5,
     borderColor: 'white',
     borderRadius: 2,
     borderWidth: 0,
-
-    flex: 10,
   },
 
   textContainer2:{
@@ -184,31 +180,65 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
 
-  button: {
-    backgroundColor: "#6ab3ff", //007dff
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+  buttonGo: {
+    backgroundColor: "#538c50", //007dff
+    paddingVertical: 5,
+    paddingHorizontal: 5,
     margin: 10,
-    minHeight: 100,
+    minHeight: 80,
+    minWidth: 250,
     justifyContent:"center",
     textAlign: "center",
 
     borderStyle: 'solid',
     borderColor: 'white',
-    borderRadius: 5,
-    borderWidth: 5,
+    borderRadius: 4,
+    borderWidth: 4,
+    flex: 4,
+    flexDirection: 'row',
+  },
+
+  buttonHelp: {
+    backgroundColor: "#6ab3ff", //007dff
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    margin: 10,
+    minHeight: 80,
+    minWidth: 250,
+    justifyContent:"center",
+    textAlign: "center",
+    borderStyle: 'solid',
+    borderColor: 'white',
+    borderRadius: 4,
+    borderWidth: 4,
     flex: 5,
     flexDirection: 'row',
   },
 
+  buttonBack: {
+    backgroundColor: "#adadad", //007dff
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    margin: 10,
+    justifyContent:"center",
+    textAlign: "center",
+    alignSelf: "center",
+
+    borderStyle: "solid",
+    borderColor: 'white',
+    borderRadius: 4,
+    borderWidth: 4,
+    flexDirection: 'row',
+  },
+
   buttonText: {
-    fontSize: 18,
+    fontSize: 20,
     color: "#fff",
     fontWeight: "bold",
     alignSelf: 'center',
     textTransform: "uppercase",
-    textAlign: "center",
-    padding: 8,
+    padding: 5,
   },
-  
+
+
 });

@@ -1,6 +1,5 @@
 
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity} from 'react-native';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity, ScrollView} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select'
 
 import {NavigationContainer} from '@react-navigation/native'
@@ -10,7 +9,7 @@ import splash from "@/app/(tabs)/splash";
 import docs from "@/app/(tabs)/docs";
 //import help from "@/app/(tabs)/help";
 
-//import multi from "@/app/(tabs)/multipleChoice";
+import multipleChoice from "@/app/(tabs)/multipleChoice";
 
 import question1 from "@/app/(tabs)/question1";
 //import question1_1 from "@/app/(tabs)/question1_1";
@@ -23,8 +22,10 @@ const Stack = createNativeStackNavigator()
 
 export default function index() {
   return (
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{
+        <Stack.Navigator
+
+            initialRouteName="splash"
+            screenOptions={{
           contentStyle: {
             backgroundColor: "black",
 
@@ -35,14 +36,16 @@ export default function index() {
           }
         }}>
 
-          <Stack.Screen name="splash" component={splash} options={{title:"Lab Session"}}/>
+          <Stack.Screen name="splash" component={splash} initialParams={{number: 1}} options={{title:"Lab Session"}} />
             <Stack.Screen name="docs" component={docs} options={{title:"documentation"}}/>
+            <Stack.Screen name="multipleChoice" component={multipleChoice} initialParams={{number: 1}} options={{title:"multichoice question"}} />
 
-            <Stack.Screen name="question1" component={question1} options={{title:"question1"}}/>
+
+            <Stack.Screen name="question1" component={question1} options={{title:"Question1"}}/>
                 {/*<Stack.Screen name="question1_1" component={question1_1} options={{title:"question1"}}/>*/}
 
+
         </Stack.Navigator>
-      </NavigationContainer>
   )
 
 };

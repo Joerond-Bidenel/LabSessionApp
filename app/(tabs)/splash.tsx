@@ -1,6 +1,6 @@
 
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity} from 'react-native';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity, ScrollView} from 'react-native';
+import { FlatList, } from 'react-native-gesture-handler';
 import RNPickerSelect from 'react-native-picker-select'
 
 import {useNavigation, createStaticNavigation} from '@react-navigation/native';
@@ -40,7 +40,7 @@ export default function Splash() {
 
         <Text style={styles.TextParagraph}>
           The session requires you to draw some UML diagrams, so have a tool ready. I like "draw.io", but you could use any - even
-          pen and paper will be enough.<br></br>
+          pen and paper will be enough.{"\n"}
           You will also need to write some Java code and run some JUnit tests. An IDE like IntelliJ would be best here, but
           even a text editor will work so long as you can run the code.
         </Text>
@@ -52,10 +52,10 @@ export default function Splash() {
 
         <View style={{flexDirection: "row"}}>
 
-          <TouchableOpacity style={styles.buttonHelp} onPress={ ()=> {this.navigation.navigate('docs', {screen: "documentation"})}}>
+          <TouchableOpacity style={styles.buttonHelp} onPress={ ()=> {navigation.navigate('docs', {screen: "documentation"})}}>
             <Text style={styles.buttonText}>Materials</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonGo} onPress={ ()=> {this.navigation.navigate('question1', {screen: "question1"})}}>
+          <TouchableOpacity style={styles.buttonGo} onPress={ ()=> {navigation.navigate('question1', {screen: "question1"})}}>
             <Text style={styles.buttonText}>Start Session</Text>
           </TouchableOpacity>
 
