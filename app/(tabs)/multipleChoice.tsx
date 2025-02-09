@@ -20,7 +20,7 @@ export default function multipleChoice() {
 
         <View style={styles.HeaderSectionRow}>
 
-          <TouchableOpacity style={styles.buttonBack} onPress={ ()=> {setAnswer(0)}}>
+          <TouchableOpacity style={styles.buttonBack} onPress={ ()=> navigation.goBack()}>
             <Text style={styles.buttonText}>&lt;- Back</Text>
           </TouchableOpacity>
 
@@ -28,7 +28,7 @@ export default function multipleChoice() {
         </View>
 
   
-{/* Main Text Section. Introduces session. Buttons to start */}
+    {/* Questions */}
 
         <QuestionBoxes navigation={navigation} questionNo={route.params.number} answer={answer} setAnswer={setAnswer}/>
 
@@ -48,9 +48,9 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
       "No Reason. This is a developer's personal preference.",
   ]
   const s1 = [
-      "The Waiting List class is an example of the Single Responsibility Principle, where this class only has one function",
-      "Incorrect. UML and code can be written in many different ways to represent the same functionality",
-      "Incorrect. There are no Sub or Superclasses involved, and the Liskov Substitution Principle states: ",
+      "The Waiting List class is an example of the Single Responsibility Principle, where this class only has one function. You can add features and structures to the waiting list without confusiion - if the methods and data structures were in the Book class, it would be more difficult to understand that \"Notify()\" relates to the waiting list at a glance.",
+      "UML and code can be written in many different ways to represent the same functionality. UML would not forbid placing the waiting list inside of Book",
+      "The Liskov Substitution Principle says: \" A subclass must work in place of its superclass. Add or re-implement features in a subclass, but do not break functionality.\" \nThere are no Sub or Superclasses involved in the interaction between Book and Waiting List, so this does not apply.",
       "This is technically correct. The Observer code could be put into book with no change in function. However, patterns are designed to help create good code, so think of the design decision behind this."
   ]
   const c1 = 0;
@@ -85,8 +85,9 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
     for (let i = 0; i < a1.length; i ++){
       buttons.push(
 
-          <TouchableOpacity style={styles.buttonHelp} onPress={ () => {setAnswer(i)}}>
-            <Text style={styles.buttonText}>{answers[questionNo][i]}</Text>
+          //style={styles.buttonTextSmall}
+          <TouchableOpacity style={styles.buttonQuestion} onPress={ () => {setAnswer(i)}}>
+            <Text style={styles.buttonTextSmall}>{answers[questionNo][i]}</Text>
           </TouchableOpacity>
       )
     }
@@ -95,7 +96,7 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
     //Return the completed component
     return(
         <View style={styles.TextSection}>
-          <Text style={styles.TextParagraph}>{questions[questionNo]}</Text>
+          <Text style={styles.TextHeaderSmall}>{questions[questionNo]}</Text>
           <View>
           {buttons}
           </View>
@@ -107,17 +108,13 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
   //if answered, return the answer, correct or not
   else {
 
+    let navButtons = (<Text>Something is broken</Text>)
+    let wasCorrect = (<Text>Something is broken</Text>, <Text>Something is still broken</Text>)
+
     //If correct, return in green
     if (answer == correctNumbers[questionNo]) {
 
-      return(
-      <View style={styles.TextSection}>
-        <Text style={styles.TextParagraph}>{questions[questionNo]}</Text>
-        <View>
-          <Text style={styles.TextParagraph}>Your answer was Correct!</Text>
-          <Text style={styles.TextParagraph}>{solutions[questionNo][answer]}</Text>
-        </View>
-
+      navButtons = (
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.buttonGo} onPress={ () => {navigation.navigate('docs')}}>
             <Text style={styles.buttonText}>Help</Text>
@@ -127,24 +124,48 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
             <Text style={styles.buttonText}>Next Question</Text>
           </TouchableOpacity>
         </View>
-
-      </View>
       )
+
+      wasCorrect = [
+          <Text style={styles.TextParagraphGreen}>Your answer was Correct!</Text>,
+          <TouchableOpacity style={styles.buttonQuestion} onPress={ () => {setAnswer(-1)}} >
+            <Text style={styles.buttonTextSmall}>{answers[questionNo][answer]}</Text>
+          </TouchableOpacity>
+      ]
+
+    }
+    else{
+      navButtons = (
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.buttonGo} onPress={ () => {navigation.navigate('docs')}}>
+              <Text style={styles.buttonText}>Help</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonHelp} onPress={ () => {setAnswer(-1)}}>
+              <Text style={styles.buttonText}>Retry</Text>
+            </TouchableOpacity>
+          </View>
+      )
+
+      wasCorrect = [
+        <Text style={styles.TextParagraphRed}>Your answer was Incorrect!</Text>,
+        <TouchableOpacity style={styles.buttonQuestion} onPress={ () => {setAnswer(-1)}} >
+          <Text style={styles.buttonTextSmall}>{answers[questionNo][answer]}</Text>
+        </TouchableOpacity>
+      ]
 
     }
 
-    //Else return wrong answer
+    //return all
     return (
+
         <View style={styles.TextSection}>
-          <Text style={styles.TextParagraph}>{questions[questionNo]}</Text>
+          <Text style={styles.TextHeaderSmall}>{questions[questionNo]}</Text>
           <View>
-            <Text style={styles.TextParagraph}>Your answer was Incorrect!</Text>
+            {wasCorrect}
             <Text style={styles.TextParagraph}>{solutions[questionNo][answer]}</Text>
           </View>
 
-          <TouchableOpacity style={styles.buttonGo} onPress={ () => {navigation.navigate('docs')}}>
-            <Text style={styles.buttonText}>Help</Text>
-          </TouchableOpacity>
+          {navButtons}
 
         </View>
     )
@@ -157,6 +178,22 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
 const styles = StyleSheet.create({
   background: {
     backgroundColor: "grey",
+  },
+
+  pagebreak: {
+    borderStyle: 'solid',
+    borderBottomWidth: 5,
+    borderColor: 'white',
+    borderRadius: 3,
+    borderWidth: 0,
+    minWidth: 1,
+  },
+
+  sidebar:{
+    margin: 0,
+    padding: 0,
+    width: "25%",
+
   },
 
   HeaderSection:{
@@ -207,6 +244,21 @@ const styles = StyleSheet.create({
     margin: 2,
   },
 
+  TextHeaderSmall:{
+    color: '#6ab3ff',
+    fontSize: 30,
+    fontWeight: '500',
+    margin: 10,
+    padding: 7,
+    maxWidth:700,
+
+    textAlign: "center",
+
+    borderBottomWidth: 5,
+    borderColor: "#fff",
+
+  },
+
   SubText:{
     color: '#6ab3ff',
     fontWeight: '500',
@@ -217,6 +269,38 @@ const styles = StyleSheet.create({
 
   TextParagraph:{
     color: '#6ab3ff',
+    fontWeight: '500',
+    fontSize: 18,
+    paddingHorizontal: 5,
+    margin: 10,
+    maxWidth:700,
+    textAlign:"left",
+    justifyContent:"center",
+    borderStyle: 'solid',
+    borderLeftWidth: 5,
+    borderColor: 'white',
+    borderRadius: 2,
+    borderWidth: 0,
+  },
+
+  TextParagraphRed:{
+    color: '#b02020',
+    fontWeight: '500',
+    fontSize: 18,
+    paddingHorizontal: 5,
+    margin: 10,
+    maxWidth:700,
+    textAlign:"left",
+    justifyContent:"center",
+    borderStyle: 'solid',
+    borderLeftWidth: 5,
+    borderColor: 'white',
+    borderRadius: 2,
+    borderWidth: 0,
+  },
+
+  TextParagraphGreen:{
+    color: '#16de0d',
     fontWeight: '500',
     fontSize: 18,
     paddingHorizontal: 5,
@@ -318,6 +402,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
+  buttonQuestion:{
+    backgroundColor: "#6ab3ff", //007dff
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    margin: 10,
+    minHeight: 120,
+    maxWidth: 400,
+
+    justifyContent:"center",
+    textAlign: "right",
+    alignItems: "center",
+
+    borderStyle: 'solid',
+    borderColor: 'white',
+    borderRadius: 4,
+    borderWidth: 4,
+
+    flex: 5,
+    flexDirection: 'row',
+  },
+
   buttonText: {
     fontSize: 20,
     color: "#fff",
@@ -327,5 +432,12 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 
+  buttonTextSmall: {
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    padding: 10,
+    textAlign: "center",
+  },
 
 });

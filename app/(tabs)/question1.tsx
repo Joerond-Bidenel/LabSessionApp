@@ -6,6 +6,9 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import RNPickerSelect from 'react-native-picker-select'
 import {useNavigation, createStaticNavigation} from '@react-navigation/native';
+import {FlatList} from "react-native-gesture-handler";
+
+import styles from "@/app/style";
 
 export default function question1() {
 
@@ -13,22 +16,35 @@ export default function question1() {
 
   return (
 
-    <ScrollView style={styles.background}>
+  <ScrollView style={styles.background}>
+    <View style={styles.HeaderSectionRow}>
 
-        <View style={styles.HeaderSectionRow}>
+      <TouchableOpacity style={styles.buttonBack} onPress={ ()=> {this.navigation.back()}}>
+        <Text style={styles.buttonText}>&lt;- Back</Text>
+      </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonBack} onPress={ ()=> {this.navigation.back()}}>
-            <Text style={styles.buttonText}>&lt;- Back</Text>
-          </TouchableOpacity>
+      <Text style={styles.TextHeader}>Design Patterns Questions</Text>
+    </View>
 
-          <Text style={styles.TextHeader}>Question 1 - Design and Implement the Observer Pattern</Text>
-        </View>
 
-  
-{/* Main Text Section. Introduces session. Buttons to start */}
+    {/* Question One */}
+    <View style={styles.mainBox}>
+      <View style={styles.sidebar}>
+        <FlatList
+            contentContainerStyle={styles.list}
+            data={[{key:'question1'}, {key:'question2'}, {key:'question3'}, {key:'question4'}, {key:'question5'}]}
+            renderItem={({item}) =>
+                <TouchableOpacity style={styles.buttonSide} onPress={ () => {navigation.navigate(item.key)}}>
+                  <Text style={styles.buttonText}>Go To {item.key}</Text>
+                </TouchableOpacity>
+            }
+        />
+      </View>
+
       <View style={styles.TextSection}>
+        <Text style={styles.TextHeader}>Question 1 - Design and Implement the Observer Pattern</Text>
 
-        <View style={styles.textContainer2}>
+        <View style={styles.TextSection}>
           <Text style={styles.TextParagraph}>
             Suppose you have a library, with many books, copies of those books, and many customers that want to lend them. Customers are, of course
             very interested in their own specific books, and the library only has so many copies, so there may be a waiting list.{"\n"}
@@ -40,226 +56,59 @@ export default function question1() {
             - or needs - to know this information.
 
             {"\n"}{"\n"}
+          </Text>
 
+          <Text style={styles.TextParagraph}>
             This is a prime application of the OBSERVER design pattern. Our customers -
             called observers - can be alerted about a specific book - called a subject. The observer pattern can be created for each book, so
             each customer can be on the list for only books they are interested in.
 
             {"\n"}{"\n"}
+          </Text>
 
+          <Text style={styles.TextParagraph}>
             There are many other obvious applications of the observer pattern - Youtube Subscriptions, social media feeds, mailing lists,
             online auctions et cetera.{"\n"}
             Also think about more abstract applications. When a gaming PC goes on sleep mode, it's monitors, speakers, lights, and fans are
             observers, waiting on the keyboard, mouse, or power button Subjects to be pressed before turning on again.
 
             {"\n"}{"\n"}
+          </Text>
 
-            Your task in this section will be to implement the observer pattern to the example library system - described by the
-            UML below. Familiarise yourself with the diagram and set up the example code, then head to the next question.
+          <Text style={styles.TextParagraph}>
+            Your task in this section will be to implement the observer pattern to the example library system. You will model the pattern using
+            some UML, write the code in Java, and answer some questions about the implementation and design decisions.
 
           </Text>
 
-          <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../images/ObserverReGuru.png")}/>
-            <Text style={styles.FigureSubText}>Observer Pattern UML - Source: Refactoring.Guru</Text>
-          </View>
-
-        </View>
-
-        <View style={styles.imageContainer}>
-          <Image style={styles.image} source={require("../images/ObserverReGuru.png")}/>
-          <Text style={styles.FigureSubText}>Observer Pattern UML - Source: Refactoring.Guru</Text>
         </View>
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.buttonGo} onPress={ () => {navigation.navigate('docs')}}>
-            <Text style={styles.buttonText}>Help</Text>
+            <Text style={styles.buttonText}>Help and Materials</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('multipleChoice', {number: 0, name: "amongus"});}}>
-            <Text style={styles.buttonText}>Next Question</Text>
+            <Text style={styles.buttonText}>Start Question One</Text>
           </TouchableOpacity>
         </View>
 
       </View>
-    </ScrollView>
+
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={require("../images/ObserverReGuru.png")}/>
+        <Text style={styles.FigureSubText}>Observer Pattern UML - Source: Refactoring.Guru</Text>
+      </View>
+
+      {/*<View style={styles.sidebar}>*/}
+
+      {/*</View>*/}
+
+    </View>
+
+  </ScrollView>
 
 
   );
 }
 
-const styles = StyleSheet.create({
-  background: {
-    backgroundColor: "grey",
-  },
-
-  HeaderSection:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'blue',
-    minHeight: 150,
-
-    borderStyle: 'solid',
-    borderBottomWidth: 5,
-    borderColor: 'white',
-    borderRadius: 3,
-    borderWidth: 0,
-  },
-
-  HeaderSectionRow:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'blue',
-    minHeight: 150,
-
-    flexDirection: "row",
-    borderStyle: 'solid',
-    borderBottomWidth: 5,
-    borderColor: 'white',
-    borderRadius: 3,
-    borderWidth: 0,
-  },
-
-  TextSection:{
-    margin: 20,
-    color: 'blue',
-    minHeight: 20,
-
-    padding:10,
-
-    flexDirection: "column",
-
-    marginTop: 5,
-    alignItems:"center",
-
-  },
-
-  TextHeader:{
-    color: '#6ab3ff',
-    fontSize: 40,
-    fontWeight: '500',
-    margin: 2,
-  },
-
-  SubText:{
-    color: '#6ab3ff',
-    fontWeight: '500',
-    textAlign: 'center',
-    paddingHorizontal: 5,
-  },
-
-
-  TextParagraph:{
-    color: '#6ab3ff',
-    fontWeight: '500',
-    fontSize: 18,
-    paddingHorizontal: 5,
-    margin: 10,
-    maxWidth:700,
-    textAlign:"left",
-    justifyContent:"center",
-    borderStyle: 'solid',
-    borderLeftWidth: 5,
-    borderColor: 'white',
-    borderRadius: 2,
-    borderWidth: 0,
-  },
-
-  textContainer2:{
-    flexDirection: "row",
-    paddingHorizontal: 5,
-    margin: 10,
-    padding: 10,
-  },
-
-  imageContainer:{
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  image:{
-    resizeMode: "contain",
-    width: 400,
-    height: 400,
-    flex: 9,
-  },
-
-  FigureSubText:{
-    color: '#6ab3ff',
-    fontWeight: '500',
-    textAlign: 'center',
-    padding: 0,
-    margin: 0,
-    flex: 1,
-  },
-
-  buttonContainer:{
-    alignSelf: "flex-end",
-    flexDirection: "row",
-    alignItems: "center",
-    textAlign: "right",
-  },
-
-  buttonGo: {
-    backgroundColor: "#538c50", //007dff
-    paddingVertical: 5,
-    paddingHorizontal: 5,
-    margin: 10,
-    minHeight: 80,
-    minWidth: 250,
-    justifyContent:"center",
-    textAlign: "center",
-
-    borderStyle: 'solid',
-    borderColor: 'white',
-    borderRadius: 4,
-    borderWidth: 4,
-    flex: 4,
-    flexDirection: 'row',
-  },
-
-  buttonHelp: {
-    backgroundColor: "#6ab3ff", //007dff
-    paddingVertical: 5,
-    paddingHorizontal: 5,
-    margin: 10,
-    minHeight: 80,
-    minWidth: 250,
-    justifyContent:"center",
-    textAlign: "center",
-    borderStyle: 'solid',
-    borderColor: 'white',
-    borderRadius: 4,
-    borderWidth: 4,
-    flex: 5,
-    flexDirection: 'row',
-  },
-
-  buttonBack: {
-    backgroundColor: "#adadad", //007dff
-    paddingVertical: 5,
-    paddingHorizontal: 5,
-    margin: 10,
-    justifyContent:"center",
-    textAlign: "center",
-    alignSelf: "center",
-
-    borderStyle: "solid",
-    borderColor: 'white',
-    borderRadius: 4,
-    borderWidth: 4,
-    flexDirection: 'row',
-  },
-
-  buttonText: {
-    fontSize: 20,
-    color: "#fff",
-    fontWeight: "bold",
-    alignSelf: 'center',
-    textTransform: "uppercase",
-    padding: 5,
-  },
-
-
-});

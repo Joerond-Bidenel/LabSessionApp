@@ -12,7 +12,7 @@ import docs from "@/app/(tabs)/docs";
 import multipleChoice from "@/app/(tabs)/multipleChoice";
 
 import question1 from "@/app/(tabs)/question1";
-//import question1_1 from "@/app/(tabs)/question1_1";
+import question1_1 from "@/app/(tabs)/question1_1";
 //import question1_2 from "@/app/(tabs)/question1_2";
 //import question1_3 from "@/app/(tabs)/question1_3";
 
@@ -42,7 +42,8 @@ export default function index() {
 
 
             <Stack.Screen name="question1" component={question1} options={{title:"Question1"}}/>
-                {/*<Stack.Screen name="question1_1" component={question1_1} options={{title:"question1"}}/>*/}
+            <Stack.Screen name="question1_1" component={question1_1} options={{title:"Question1_1"}}/>
+
 
 
         </Stack.Navigator>
