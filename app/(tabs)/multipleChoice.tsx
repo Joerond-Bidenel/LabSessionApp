@@ -6,6 +6,8 @@ import {useNavigation, createStaticNavigation, useRoute} from '@react-navigation
 import {useContext, useState} from "react";
 import {useSearchParams} from "expo-router/build/hooks";
 
+import styles from "@/app/style";
+
 export default function multipleChoice() {
 
   const navigation = useNavigation();
@@ -39,42 +41,92 @@ export default function multipleChoice() {
 
 const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
 
-  //"Why is the waiting list extracted to its own class rather than being implemented inside the ”Book” class?",
-
+  //0 - why is Loanee an Interface, not a superclass
   const a1 = [
+    "No Reason. Developer’s personal preference.",
+    "Because Java lacks Multiple Inheritance, or we always would",
+    "Because Superclasses are bad design and outdated",
+    "So we can add many different types of observer regardless of its type.",
+  ]
+  const s1 = [
+      "Incorrect! Though we could make it work with a superclass in this example, we have a deeper reason.",
+      "Incorrect! Java doesn't have multiple inheritance, but even if it did we still have a good reason to use an interface. They help us keep code coupling low, and stick to the SOLID principles.",
+      "Incorrect! There is nothing wrong with using a superclass. Interfaces and superclasses both have their place.",
+      "Correct! Any class can implement the interface and recieve alerts from the waiting list!"
+  ]
+
+  //1 - "Why is the waiting list extracted to its own class rather than being implemented inside the ”Book” class?",
+  const a2 = [
       "To help the waiting list follow the Single Responsibility Principle",
       "To follow proper UML syntax",
       "To help follow the Liskov Substitution Principle",
       "No Reason. This is a developer's personal preference.",
   ]
-  const s1 = [
+  const s2 = [
       "The Waiting List class is an example of the Single Responsibility Principle, where this class only has one function. You can add features and structures to the waiting list without confusiion - if the methods and data structures were in the Book class, it would be more difficult to understand that \"Notify()\" relates to the waiting list at a glance.",
       "UML and code can be written in many different ways to represent the same functionality. UML would not forbid placing the waiting list inside of Book",
       "The Liskov Substitution Principle says: \" A subclass must work in place of its superclass. Add or re-implement features in a subclass, but do not break functionality.\" \nThere are no Sub or Superclasses involved in the interaction between Book and Waiting List, so this does not apply.",
       "This is technically correct. The Observer code could be put into book with no change in function. However, patterns are designed to help create good code, so think of the design decision behind this."
   ]
-  const c1 = 0;
 
-  //"Is the waiting list is an example of the ”Singleton” Design Pattern?",
-  const a2 = [
+
+  //2 - "Is the waiting list is an example of the ”Singleton” Design Pattern?",
+  const a3 = [
     "True",
     "False",
   ]
-  const s2 = [
+  const s3 = [
       "The waiting list has a one-to-one relationship with book, but this doesn't mean it follows the singleton pattern. Singleton defines a single global instance - can there be a waiting list for each book?",
-      "Correct!"
+      "Correct! Waiting List only has one instance per book, but that doesn't make it a singleton, which is usually one global instance."
   ]
 
+  //3 - Which of the SOLID Design Principles are we most closely following by using an interface to connect Waiting List to Loanee?
+  const a4 = [
+    "Single Responsibility Principle",
+    "Open Closed Principle",
+    "Dependency-Inversion Principle",
+    "Demeter's Law Principle"
+  ]
+  const s4 = [
+      "Not really. Loanee has one responsability just now, but this is not certain",
+      "Correct! We are open for extending to new loanee types, but closed for modifying the Waiting List's behaviour.",
+      "Incorrect!",
+      "Incorrect! This isn't one of the SOLID principles, though the \"The Law of Demeter\" is something you should know!",
+  ]
+
+  //4 - What Tradeoff are we usually making when we decide to implement a Design Pattern in a system?
+  const a5 = [
+    "Better Readability, but slower code",
+    "Poorer Readability, lower cohesion",
+    "More Lines of code, better maintainability",
+    "Lower maintainability, looser coupling",
+  ]
+  const s5 = [
+      "Incorrect!",
+      "Incorrect!",
+      "Correct!",
+      "Incorrect!",
+  ]
 
   const questions = [
+    "Why have we created an Interface called \"loanee\" rather than using a superclass - or using the existing superclass?",
+
     "Why is the waiting list extracted to its own class rather than being implemented inside the ”Book” class?",
+
     "Is the waiting list is an example of the ”Singleton” Design Pattern?",
+
+    "Which SOLID principle are we following by using an interface to connect Waiting List to Loanee?",
+
+    "What tradeoff do we consider when implementing a pattern?",
   ]
-  const correctNumbers = [0, 1]
+  const correctNumbers = [3, 0, 1, 1]
 
-  const answers = [a1, a2]
+  const answers = [a1, a2, a3, a4, a5]
 
-  const solutions = [s1, s2]
+  const solutions = [s1, s2, s3, s4, s5]
+
+  const nextPages = ["question2_1", "multipleChoice", "multipleChoice", "question3"]
+  const params = [0, 2, 3, 4, 5]
 
 
   //If unanswered
@@ -82,7 +134,7 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
 
     //Set the Buttons
     let buttons = [];
-    for (let i = 0; i < a1.length; i ++){
+    for (let i = 0; i < answers[questionNo].length; i ++){
       buttons.push(
 
           //style={styles.buttonTextSmall}
@@ -120,7 +172,7 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
             <Text style={styles.buttonText}>Help</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('multipleChoice', {number: 0, name: "amongus"});}}>
+          <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate(nextPages[questionNo], {number: params[questionNo], name: "amongus"});setAnswer(-1)}}>
             <Text style={styles.buttonText}>Next Question</Text>
           </TouchableOpacity>
         </View>
@@ -172,272 +224,3 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
 
   }
 }
-
-
-
-const styles = StyleSheet.create({
-  background: {
-    backgroundColor: "grey",
-  },
-
-  pagebreak: {
-    borderStyle: 'solid',
-    borderBottomWidth: 5,
-    borderColor: 'white',
-    borderRadius: 3,
-    borderWidth: 0,
-    minWidth: 1,
-  },
-
-  sidebar:{
-    margin: 0,
-    padding: 0,
-    width: "25%",
-
-  },
-
-  HeaderSection:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'blue',
-    minHeight: 150,
-
-    borderStyle: 'solid',
-    borderBottomWidth: 5,
-    borderColor: 'white',
-    borderRadius: 3,
-    borderWidth: 0,
-  },
-
-  HeaderSectionRow:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'blue',
-    minHeight: 150,
-
-    flexDirection: "row",
-    borderStyle: 'solid',
-    borderBottomWidth: 5,
-    borderColor: 'white',
-    borderRadius: 3,
-    borderWidth: 0,
-  },
-
-  TextSection:{
-    margin: 20,
-    color: 'blue',
-    minHeight: 20,
-
-    padding:10,
-
-    flexDirection: "column",
-
-    marginTop: 5,
-    alignItems:"center",
-
-  },
-
-  TextHeader:{
-    color: '#6ab3ff',
-    fontSize: 40,
-    fontWeight: '500',
-    margin: 2,
-  },
-
-  TextHeaderSmall:{
-    color: '#6ab3ff',
-    fontSize: 30,
-    fontWeight: '500',
-    margin: 10,
-    padding: 7,
-    maxWidth:700,
-
-    textAlign: "center",
-
-    borderBottomWidth: 5,
-    borderColor: "#fff",
-
-  },
-
-  SubText:{
-    color: '#6ab3ff',
-    fontWeight: '500',
-    textAlign: 'center',
-    paddingHorizontal: 5,
-  },
-
-
-  TextParagraph:{
-    color: '#6ab3ff',
-    fontWeight: '500',
-    fontSize: 18,
-    paddingHorizontal: 5,
-    margin: 10,
-    maxWidth:700,
-    textAlign:"left",
-    justifyContent:"center",
-    borderStyle: 'solid',
-    borderLeftWidth: 5,
-    borderColor: 'white',
-    borderRadius: 2,
-    borderWidth: 0,
-  },
-
-  TextParagraphRed:{
-    color: '#b02020',
-    fontWeight: '500',
-    fontSize: 18,
-    paddingHorizontal: 5,
-    margin: 10,
-    maxWidth:700,
-    textAlign:"left",
-    justifyContent:"center",
-    borderStyle: 'solid',
-    borderLeftWidth: 5,
-    borderColor: 'white',
-    borderRadius: 2,
-    borderWidth: 0,
-  },
-
-  TextParagraphGreen:{
-    color: '#16de0d',
-    fontWeight: '500',
-    fontSize: 18,
-    paddingHorizontal: 5,
-    margin: 10,
-    maxWidth:700,
-    textAlign:"left",
-    justifyContent:"center",
-    borderStyle: 'solid',
-    borderLeftWidth: 5,
-    borderColor: 'white',
-    borderRadius: 2,
-    borderWidth: 0,
-  },
-
-  textContainer2:{
-    flexDirection: "row",
-    paddingHorizontal: 5,
-    margin: 10,
-    padding: 10,
-  },
-
-  imageContainer:{
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  image:{
-    resizeMode: "contain",
-    width: 400,
-    height: 400,
-    flex: 9,
-  },
-
-  FigureSubText:{
-    color: '#6ab3ff',
-    fontWeight: '500',
-    textAlign: 'center',
-    padding: 0,
-    margin: 0,
-    flex: 1,
-  },
-
-  buttonContainer:{
-    alignSelf: "flex-end",
-    flexDirection: "row",
-    alignItems: "center",
-    textAlign: "right",
-  },
-
-  buttonGo: {
-    backgroundColor: "#538c50", //007dff
-    paddingVertical: 5,
-    paddingHorizontal: 5,
-    margin: 10,
-    minHeight: 80,
-    minWidth: 250,
-    justifyContent:"center",
-    textAlign: "center",
-
-    borderStyle: 'solid',
-    borderColor: 'white',
-    borderRadius: 4,
-    borderWidth: 4,
-    flex: 4,
-    flexDirection: 'row',
-  },
-
-  buttonHelp: {
-    backgroundColor: "#6ab3ff", //007dff
-    paddingVertical: 5,
-    paddingHorizontal: 5,
-    margin: 10,
-    minHeight: 80,
-    minWidth: 250,
-    justifyContent:"center",
-    textAlign: "center",
-    borderStyle: 'solid',
-    borderColor: 'white',
-    borderRadius: 4,
-    borderWidth: 4,
-    flex: 5,
-    flexDirection: 'row',
-  },
-
-  buttonBack: {
-    backgroundColor: "#adadad", //007dff
-    paddingVertical: 5,
-    paddingHorizontal: 5,
-    margin: 10,
-    justifyContent:"center",
-    textAlign: "center",
-    alignSelf: "center",
-
-    borderStyle: "solid",
-    borderColor: 'white',
-    borderRadius: 4,
-    borderWidth: 4,
-    flexDirection: 'row',
-  },
-
-  buttonQuestion:{
-    backgroundColor: "#6ab3ff", //007dff
-    paddingVertical: 5,
-    paddingHorizontal: 5,
-    margin: 10,
-    minHeight: 120,
-    maxWidth: 400,
-
-    justifyContent:"center",
-    textAlign: "right",
-    alignItems: "center",
-
-    borderStyle: 'solid',
-    borderColor: 'white',
-    borderRadius: 4,
-    borderWidth: 4,
-
-    flex: 5,
-    flexDirection: 'row',
-  },
-
-  buttonText: {
-    fontSize: 20,
-    color: "#fff",
-    fontWeight: "bold",
-    alignSelf: 'center',
-    textTransform: "uppercase",
-    padding: 5,
-  },
-
-  buttonTextSmall: {
-    fontSize: 18,
-    color: "#fff",
-    fontWeight: "bold",
-    padding: 10,
-    textAlign: "center",
-  },
-
-});

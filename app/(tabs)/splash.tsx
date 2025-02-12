@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity, ScrollView} from 'react-native';
+import {Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity, ScrollView} from 'react-native';
 import { FlatList, } from 'react-native-gesture-handler';
 import RNPickerSelect from 'react-native-picker-select'
 
@@ -21,9 +21,31 @@ export default function Splash() {
         <Text style={styles.SubText}>Nathan Ross - UG4 Honours Project</Text>
       </View>
 
+      {/* Survey Information*/}
+      <View style={styles.TextSectionMain}>
+        <Text style={styles.TextHeader}>Project Research</Text>
+
+        <Text style={styles.TextParagraph}>
+          This Lab Session was created for my Year 4 Honours Project "Pedagogically Sensible Lab Sessions for Software Design and Modelling", and as such
+          I am running a post-session questionnaire on the Lab Session and its content.
+        </Text>
+
+        <Text style={styles.TextParagraph}>
+          Its perfectly fine if you want to try out the session without doing the survey, but it would really help if you could take 5 minutes or so to give your thoughts
+          on the session. Thank you for participating either way!
+        </Text>
+
+        <TouchableOpacity style={styles.buttonGo} onPress={ ()=> {navigation.navigate('question1', {screen: "question1"})}}>
+          <Text style={styles.buttonText}>Survey Link</Text>
+        </TouchableOpacity>
+
+
+      </View>
+
+
   
 {/* Main Text Section. Introduces session. Buttons to start */}
-      <View style={styles.TextSection}>
+      <View style={styles.TextSectionMain}>
 
         <Text style={styles.TextHeader}>Lab Session Overview</Text>
 
@@ -63,33 +85,7 @@ export default function Splash() {
           </TouchableOpacity>
 
         </View>
-
-
-
       </View>
-
-      {/* Survey Information*/}
-      <View style={styles.TextSection}>
-        <Text style={styles.TextHeader}>Project Research</Text>
-
-        <Text style={styles.TextParagraph}>
-          This Lab Session was created for my Year 4 Honours Project "Pedagogically Sensible Lab Sessions for Software Design and Modelling", and as such
-          I am running a post-session questionnaire on the Lab Session and its content.
-        </Text>
-        
-        <Text style={styles.TextParagraph}>
-          Its perfectly fine if you want to try out the session without doing the survey, but it would really help if you could take 5 minutes or so to give your thoughts
-          on the session. Thank you for participating either way!
-        </Text>
-
-        <TouchableOpacity style={styles.buttonGo} onPress={ ()=> {navigation.navigate('question1', {screen: "question1"})}}>
-          <Text style={styles.buttonText}>Survey Link</Text>
-        </TouchableOpacity>
-
-
-      </View>
-      
-      
 
     </ScrollView>
 
