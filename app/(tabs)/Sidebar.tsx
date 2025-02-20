@@ -11,7 +11,7 @@ const Sidebar = sidebarProps => {
     <View style={styles.sidebar}>
         <FlatList
             contentContainerStyle={styles.list}
-            data={[{key:'Observer: Overview', value:'question1'}, {key:'Observer: Design Interface', value:'question1_1'}, {key:'Observer: Implement Interface', value: 'question1_2'}, {key:'Observer: Multiple Choice', value: 'multipleChoice'}, {key:'Observer: Design Waiting List', value: 'question2_1'}, {key:'Observer: Implement Waiting List', value: 'question2_2'}, {key:'Observer: Multiple Choice Part 2', value: 'multipleChoice'},]}
+            data={[{key:'Observer: Overview', value:'question1'}, {key:'Observer: Design Interface', value:'question1_1'}, {key:'Observer: Implement Interface', value: 'question1_2'}, {key:'Observer: Multiple Choice', value: 'multipleChoice'}, {key:'Observer: Design Waiting List', value: 'question2_1'}, {key:'Observer: Implement Waiting List', value: 'question2_2'},{key:'Observer: Link Up Waiting List', value: 'question2_3'}, {key:'Observer: Multiple Choice Part 2', value: 'multipleChoice'},]}
             renderItem={({item}) =>{
                 if (sidebarProps.title == item.value){
                     return(

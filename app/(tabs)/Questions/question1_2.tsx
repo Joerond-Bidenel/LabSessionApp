@@ -75,6 +75,10 @@ export default function question1_2() {
             You can also check out the Github Branch for this question if you get stuck and want the answer.
           </Text>
 
+          <Text style={styles.TextParagraph}>
+            Once you've had a chance to review and finalise your code, head to the next question!
+          </Text>
+
         </View>
       </View>
     </View>

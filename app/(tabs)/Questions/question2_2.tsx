@@ -80,8 +80,8 @@ export default function question2_2() {
         <Text style={styles.buttonText}>Help and Materials</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('multipleChoice', {number: 1, name: "amongus"});}}>
-        <Text style={styles.buttonText}>Start Question One</Text>
+      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('question2_3', {number: 1, name: "amongus"});}}>
+        <Text style={styles.buttonText}>Next Question</Text>
       </TouchableOpacity>
     </View>
 

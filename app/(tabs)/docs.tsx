@@ -17,7 +17,7 @@ export default function docs() {
   return (
 
     <ScrollView style={styles.background}>
-
+w
       <View style={styles.HeaderSection}>
         <Text style={styles.TextHeader}>SDM Design Patterns Lab Session</Text>
         <Text style={styles.SubText}>Nathan Ross - UG4 Honours Project</Text>
