@@ -177,8 +177,8 @@ export default StyleSheet.create({
 
     image:{
         resizeMode: "stretch",
-        width: 500,
-        height: 400,
+        width: 650,
+        height: 500,
         flex: 9,
 
         borderCurve: "circular",

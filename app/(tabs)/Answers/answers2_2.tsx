@@ -11,7 +11,7 @@ import {FlatList} from "react-native-gesture-handler";
 import styles from "@/app/style";
 import Sidebar from "@/app/(tabs)/Sidebar";
 
-export default function question1_2() {
+export default function question2_2() {
 
   const navigation = useNavigation();
   const route = useRoute();
@@ -39,51 +39,39 @@ export default function question1_2() {
 
       {/*Question Text*/}
       <View style={styles.TextSection}>
-        <Text style={styles.TextHeader}>Question 1.2 - Implement the Interface</Text>
+        <Text style={styles.TextHeader}>Question 2.2 - Implement the Waiting List</Text>
 
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            Now, we’re going to implement the changes to the diagram into the Java Code.
-            For this task, please follow the names and structure of the exemplar diagram so that the automarker works properly.
+            Now, we’re going to implement the changes to the diagram into the Java Code. For this task, please follow the names and structure of the exemplar diagram so that the automarker works properly.
+
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UML1.png")}/>
-            <Text style={styles.FigureSubText}>Library Changes to Implement - Source: Github Repo</Text>
+            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
+            <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
           </View>
 
+
           <Text style={styles.TextParagraph}>
-            You’ll need to: {"\n"}{"\n"}
-
-            -	Create the Loanee Interface{"\n"}{"\n"}
-
-            -	Ensure that the "Customer" subclasses implement the Loanee Interface. {"\n"}{"\n"}
-
-            - Create the "Update" method in Loanee
-
-            o	For the Interface, the update method should return the message unaltered{"\n"}
-            i.e “MessageSaysThis”{"\n"}{"\n"}
-
-            o	For PrivateCustomer, overwrite the update method so that it prints - via System.out.println() - and returns customer’s name and the message, with a space between them{"\n"}
-            i.e  “JohnSmith MessageSaysThis”{"\n"}{"\n"}
-
-            o	For SchoolLibrary, overwrite the update method so that it prints and returns the customer’s name, location, and the message, with a space between each{"\n"}
-            i.e “UniversityOfEdinburgh Edinburgh MessageSaysThis”{"\n"}{"\n"}
-
-
+            You’ll need to:{"\n"}{"\n"}
+            -	Add the new “Waiting List” Class and all its methods:{"\n"}
+            o	Subscribe adds a Loanee to an internal list{"\n"}
+            o	Unsubscribe removes the client from the internal list.{"\n"}
+            o	NotifySubscribers should invoke the “Update” method on the Loanee{"\n"}
           </Text>
+
+          <Text style={styles.TextParagraph}>
+            You also need to create the relationship between book and Waiting list (i.e a book has a waiting list).
+          </Text>
+
 
           <Text style={styles.TextParagraph}>
             The Repository contains test sets for this question, called "". {"\n"}
             Run them, and they will give feedback on your code - if you're correct or what you're missing!
             You can also check out the Github Branch for this question if you get stuck and want the answer.
           </Text>
-
-          <Text style={styles.TextParagraph}>
-            Once you've had a chance to run the tests, review, and finalise your code, head to the next question!
-          </Text>
-
         </View>
       </View>
     </View>
@@ -92,7 +80,7 @@ export default function question1_2() {
         <Text style={styles.buttonText}>Help and Materials</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('multipleChoice', {number: 0, name: "amongus"});}}>
+      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('question2_3', {number: 1, name: "amongus"});}}>
         <Text style={styles.buttonText}>Next Question</Text>
       </TouchableOpacity>
     </View>

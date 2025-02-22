@@ -49,10 +49,10 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
     "So we can add many different types of observer regardless of its type.",
   ]
   const s1 = [
-      "Incorrect! Though we could make it work with a superclass in this example, we have a deeper reason.",
-      "Incorrect! Java doesn't have multiple inheritance, but even if it did we still have a good reason to use an interface. They help us keep code coupling low, and stick to the SOLID principles.",
+      "Incorrect! Though we could make it work with a superclass in this example, we have good reasons for using an interface instead.",
+      "Incorrect! Java doesn't have multiple inheritance, and in other languages you are right and we would have to use a Superclass. Python's superclasses are usable as interfaces. However, even if Java did have multiple inheritance we would likely use an interface-like structure anyway - for example to keep coupling low.",
       "Incorrect! There is nothing wrong with using a superclass. Interfaces and superclasses both have their place.",
-      "Correct! Any class can implement the interface and recieve alerts from the waiting list!"
+      "Correct! Any class can implement the interface and receive alerts from the waiting list - not just clients. This helps us adhere to the Single Responsibility and Open-Closed principles!"
   ]
 
   //1 - "Why is the waiting list extracted to its own class rather than being implemented inside the ”Book” class?",
@@ -109,7 +109,7 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
   ]
 
   const questions = [
-    "Why have we created an Interface called \"loanee\" rather than using a superclass - or using the existing superclass?",
+    "Why have we created an Interface called \"Loanee\" rather than using a superclass - or using an existing superclass?",
 
     "Why is the waiting list extracted to its own class rather than being implemented inside the ”Book” class?",
 

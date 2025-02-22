@@ -42,30 +42,32 @@ export default function question1_1() {
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            Firstly, we need to refactor the code to make our “Customers” work with the Observer pattern.
-            We must set up an interface that can then be implemented by any object that wants to be an Observer,
-            regardless of its superclass or purpose.
+            Firstly, we need to refactor the code to make our “Customers” work with the Observer pattern.{"\n"}{"\n"}
+
+            While we could use the existing "Customer" superclass, we instead want to use an interface for this - where any object that wants to
+            join the list has to implement it's features. This allows us to add <i>ANY</i> class to the list, not just customers. Think of why you might want to do this, or what systems or processes may
+            need altered when a book arrives for a return.
+
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
-            <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
+            <Image style={styles.image} source={require("../../images/UMLStarter.png")}/>
+            <Text style={styles.FigureSubText}>Library Example System UML - Source: Github Repo</Text>
           </View>
 
           <Text style={styles.TextParagraph}>
-            To the UML diagram, we need to do a few things:{"\n"}{"\n"}
+            To the UML diagram above - which you can download from the Github Repo- we need to add Two things:{"\n"}{"\n"}
 
-            -	Add an interface called “Loanee”. This should implement one method called “Update”
-            which takes a single parameter called “Message”, and returns a String.{"\n"}{"\n"}
+            An Interface called “Loanee”. This has one method called “Update” taking one parameter“Message”, and returning a String.{"\n"}{"\n"}
 
-            -	Add a relationship between Loanee and the two Customer classes "PrivateCustomer" and "SchoolLibrary"{"\n"}{"\n"}
+            An appropriate UML relationship between Loanee and the two Customer subclasses "PrivateCustomer" and "SchoolLibrary"{"\n"}{"\n"}
 
             Don't worry about how Book and Loanee interact, we'll deal with that when we add the rest of the pattern!
 
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Once you’re done, move on to the next page. This will contain a diagram with the answers.
+            Once you’ve made the changes, move on to the next page (you may need to scroll quite far down. Sorry). This will contain a diagram with the answers, and why we have done this.
           </Text>
 
         </View>
@@ -76,8 +78,8 @@ export default function question1_1() {
         <Text style={styles.buttonText}>Help and Materials</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('question1_2')}}>
-        <Text style={styles.buttonText}>Next Question</Text>
+      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('answers1_1')}}>
+        <Text style={styles.buttonText}>Get Answers</Text>
       </TouchableOpacity>
 
     </View>

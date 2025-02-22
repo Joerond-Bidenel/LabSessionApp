@@ -21,10 +21,12 @@ export default function question1() {
 
     {/*Header*/}
     <View style={styles.HeaderSectionRow}>
+
       <TouchableOpacity style={styles.buttonBack} onPress={ ()=> {this.navigation.back()}}>
         <Text style={styles.buttonText}>&lt;- Back</Text>
       </TouchableOpacity>
-      <Text style={styles.TextHeader}>SDM Lab Session: Observer Pattern</Text>
+
+      <Text style={styles.TextHeader}>SDM Lab Session: State Pattern</Text>
     </View>
 
 
@@ -37,19 +39,19 @@ export default function question1() {
 
       {/*Question Text*/}
       <View style={styles.TextSection}>
-        <Text style={styles.TextHeader}>Question 1 - Design and Implement the Observer Pattern</Text>
+        <Text style={styles.TextHeader}>Question 3.2 - Refactor the State Pattern Code</Text>
 
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            Suppose you have a library, with many books, many copies of those books, and many customers that want to lend them to.
-            Below you can see a diagram of this system – familiarise yourself with it, as we will be extending this and editing the code it describes in the next questions!
+            Suppose you have a library, with many books, many copies of those books, and many customers that want to lend them.
+            Below you can see a diagram of this system – familiarise yourself with it, as we will be extending this, and editing the code it describes in the next questions!
 
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UMLStarter.png")}/>
-            <Text style={styles.FigureSubText}>Library Example System UML - Source: Github Repo</Text>
+            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
+            <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
           </View>
 
 
@@ -65,7 +67,7 @@ export default function question1() {
           </Text>
 
           <Text style={styles.TextParagraph}>
-            This is a prime application of the OBSERVER design pattern. Our customers - called observers - can be alerted about a specific book - called a Subject – when an action occurs;
+            This is a prime application of the OBSERVER design pattern. Our customers - called observers - can be alerted about a specific book - called a Subject – when an action occurs.
             In this case when a copy of the book is taken or returned. The observer pattern can be instantiated for each book,
             so customers can be subscribed on the list for only books they are interested in.
           </Text>
@@ -76,13 +78,14 @@ export default function question1() {
           </View>
 
           <Text style={styles.TextParagraph}>
-            Of course you dont <i>have</i> to use the observer pattern, but think of how many of these types of interactions we may have! Book waiting lists, new releases, author updates, library events, the list goes on.
-            If a new developer takes over this project and there are a million different ways the system models this type of interaction, then it will take ages for them to understand and maintain the system! This is why
-            we need this uniform pattern.
+            There are many other obvious applications of the observer pattern - Youtube Subscriptions, social media feeds, mailing lists,
+            online auctions et cetera.{"\n"}
+            Also think about more abstract applications. When a gaming PC goes on sleep mode, it's monitors, speakers, lights, and fans are
+            observers, waiting on the keyboard, mouse, or power button Subjects to be pressed before turning on again.
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Your task in this section will be to implement the observer pattern to the example library system in the form of a book Waiting List. You will model the pattern using some UML, write the code in Java,
+            Your task in this section will be to implement the observer pattern to the example library system. You will model the pattern using some UML, write the code in Java,
             and answer some questions about the implementation and design decisions. This will be broken down into small steps to help understand and solve the problem.
 
           </Text>
@@ -94,10 +97,9 @@ export default function question1() {
         <Text style={styles.buttonText}>Help and Materials</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('question1_1');}}>
+      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('multipleChoice', {number: 0, name: "amongus"});}}>
         <Text style={styles.buttonText}>Start Question One</Text>
       </TouchableOpacity>
-
     </View>
 
   </ScrollView>

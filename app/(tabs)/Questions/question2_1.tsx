@@ -44,35 +44,42 @@ export default function question2_1() {
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            Now that we have a uniform way to talk to our Observers via the interface, we need to add the features that let us notify them of available books. We will start
-            by moddifying the UML again. {"\n"}
+            Now that we have a standard for Observers to follow via the interface, we need to add the features that let us notify them of available books. We will start
+            by modifying the UML again. {"\n"}
             We need to implement the “Waiting List” Class, where we’ll implement the features that let us add,
-            remove, and alert the “Loanee” objects when the Subject changes.
+            remove, and alert a set of “Loanee” objects when the Subject changes - in this case, when a change in book is observed.
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
-            <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
+            <Image style={styles.image} source={require("../../images/UML1.png")}/>
+            <Text style={styles.FigureSubText}>Library System to Extend - Source: Nathan Ross</Text>
           </View>
 
           <Text style={styles.TextParagraph}>
-            Add a new class Called “Waiting List” to the UML diagram, which should be linked to the “Book” (as this is the subject we are observing).
+            Add a new class Called “Waiting List” to the UML diagram, which should have a relationship to the “Book” class (as this is the subject we are observing).
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Waiting List should also be connected to the Loanee Interface, as a waiting list can have many Loanees attached.
+            Add a relationship between Waiting List and the Loanee Interface - a waiting list has Loanees.
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Add methods in the Waiting List for the following tasks {"\n"}{"\n"}
-            -	“Subscribe”, for adding a customer{"\n"}
-            -	“Unsubscribe”, for removing a customer{"\n"}
-            -	“NotifySubscribers”, for alerting a set of customers{"\n"}
+            Add methods in the Waiting List for the following tasks. Come up with a sensible input and output for each of them: {"\n"}{"\n"}
+            -	“Subscribe”, for adding a Loanee{"\n"}
+            -	“Unsubscribe”, for removing a Loanee{"\n"}
+            -	“NotifySubscribers”, for alerting a set of Loanee Objects that something has happened.{"\n"}
+            -   "getSubscribed", which returns an ArrayList of Loanees (I need this for the Java tests to work!)
 
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Once you’re done, move on to the next page. This will contain a diagram with the answers.
+            The Repository contains test sets for this question, called "". {"\n"}
+            Run them, and they will give feedback on your code - if you're correct or what you're missing!
+            You can also check out the Github Branch for this question if you get stuck and want the answer.
+          </Text>
+
+          <Text style={styles.TextParagraph}>
+            Once you've had a chance to run the tests, review, and finalise your code, head to the next question!
           </Text>
 
         </View>
@@ -83,8 +90,8 @@ export default function question2_1() {
         <Text style={styles.buttonText}>Help and Materials</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('question2_2', {name: "amongus"});}}>
-        <Text style={styles.buttonText}>Next Question</Text>
+      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('answers2_1', {name: "amongus"});}}>
+        <Text style={styles.buttonText}>Get Answers</Text>
       </TouchableOpacity>
     </View>
 

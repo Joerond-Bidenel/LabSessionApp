@@ -44,32 +44,26 @@ export default function question1_2() {
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            Now, we’re going to implement the changes to the diagram into the Java Code.
-            For this task, please follow the names and structure of the exemplar diagram so that the automarker works properly.
+            The parts in RED are what we have added.
           </Text>
-
-          <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UML1.png")}/>
-            <Text style={styles.FigureSubText}>Library Changes to Implement - Source: Github Repo</Text>
-          </View>
 
           <Text style={styles.TextParagraph}>
             You’ll need to: {"\n"}{"\n"}
 
-            -	Create the Loanee Interface{"\n"}{"\n"}
+            -	Implement the Loanee Interface{"\n"}{"\n"}
 
-            -	Ensure that the "Customer" subclasses implement the Loanee Interface. {"\n"}{"\n"}
+            -	Ensure that the "Customer" classes implement the Loanee Interface. {"\n"}{"\n"}
 
-            - Create the "Update" method in Loanee
+            -	Add the “update” method to the interface and the client classes.{"\n"}{"\n"}
 
-            o	For the Interface, the update method should return the message unaltered{"\n"}
-            i.e “MessageSaysThis”{"\n"}{"\n"}
+            o	For the Loanee Interface, the update method should return the message unaltered{"\n"}
+            	i.e “MessageSaysThis”{"\n"}{"\n"}
 
-            o	For PrivateCustomer, overwrite the update method so that it prints - via System.out.println() - and returns customer’s name and the message, with a space between them{"\n"}
-            i.e  “JohnSmith MessageSaysThis”{"\n"}{"\n"}
+            o	For PrivateCustomer, the update method should return the customer’s name prepended to the message, with a space{"\n"}
+            	i.e  “JohnSmith MessageSaysThis”{"\n"}{"\n"}
 
-            o	For SchoolLibrary, overwrite the update method so that it prints and returns the customer’s name, location, and the message, with a space between each{"\n"}
-            i.e “UniversityOfEdinburgh Edinburgh MessageSaysThis”{"\n"}{"\n"}
+            o	For SchoolLibrary, the update method should return the name and location of the customer prepended to the message, with spaces between them{"\n"}
+            	i.e “UniversityOfEdinburgh Edinburgh MessageSaysThis”{"\n"}{"\n"}
 
 
           </Text>
@@ -81,7 +75,7 @@ export default function question1_2() {
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Once you've had a chance to run the tests, review, and finalise your code, head to the next question!
+            Once you've had a chance to review and finalise your code, head to the next question!
           </Text>
 
         </View>

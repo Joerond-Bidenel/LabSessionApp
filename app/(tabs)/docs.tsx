@@ -17,7 +17,7 @@ export default function docs() {
   return (
 
     <ScrollView style={styles.background}>
-w
+
       <View style={styles.HeaderSection}>
         <Text style={styles.TextHeader}>SDM Design Patterns Lab Session</Text>
         <Text style={styles.SubText}>Nathan Ross - UG4 Honours Project</Text>
@@ -29,43 +29,35 @@ w
   
 {/* Main Text Section. Introduces session. Buttons to start */}
       <View style={styles.TextSection}>
-        <Text style={styles.TextHeader}>Materials and Resources</Text>
+        <Text style={styles.TextHeader}>Session Help</Text>
 
         {/*Location of Repository, including questions as worksheets/PDFs*/}
         <Text style={styles.TextParagraph}>
-          This session uses this website to deliver the questions, but the materials are all available on a repository located
-          here:
-          <br/>
-          This also includes the questions and answers as PDFs in the event that the website is unavailable, or doesn't work as expected on
-          your machine. This will provide the session in a less fun and interactive way, but you should still learn some things!
+          If you're looking for session materials, test sets, or answers, head to the Github Repo and follow the instructions in the README file: ""
         </Text>
 
-        {/*Location of some helpful materials, like ReGuru etc*/}
         <Text style={styles.TextParagraph}>
-          There are many available resources to learn about patterns if you are stuck:
-          <br/>
-          Refactoring Guru (Refactoring.guru) has a description, explaination, and implementation of many design patterns.
-          <br/>
-          The SDM opencourse page has the lecture slides, and some helpful links
-          <br/>
-          Wikipedia has fairly accurate information about design patterns
-          <br/>
-
+          There are many available resources to learn about patterns if you are stuck. Your first location to look for help should be the SDM materials available here:{"\n"}{"\n"} https://opencourse.inf.ed.ac.uk/sdm/course-materials/week-7
 
         </Text>
 
-        {/*Names of some tools etc for the session/course*/}
         <Text style={styles.TextParagraph}>
-          Hello World
+          Refactoring Guru has a description, explaination, and implementation of most design patterns. If you're struggling with the structure, implementation, or comprehension of a pattern, head to their website and have a look.{"\n"}{"\n"}
+
+          https://refactoring.guru/design-patterns/observer {"\n"}
+
+          https://refactoring.guru/design-patterns/state{"\n"}
+
+          https://refactoring.guru/design-patterns/singleton{"\n"}
+
+        </Text>
+
+        <Text style={styles.TextParagraph}>
+          Wikipedia actually has some good resources on design patterns, including their implementation in different languages.{"\n"}{"\n"}
+          https://en.wikipedia.org/wiki/Observer_pattern
         </Text>
 
       </View>
-
-
-
-
-
-
 
     </ScrollView>
 
