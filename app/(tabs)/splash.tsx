@@ -62,11 +62,11 @@ export default function Splash() {
         </Text>
 
         <Text style={styles.TextParagraph}>
-          The session requires you to draw some UML diagrams, so have a tool ready. I like "draw.io", but you could use any - even
+          The session requires you to draw some UML diagrams, so have a tool ready - I am going to give instructions for the free online platform "Draw.io" but you could use any - even
           pen and paper will be enough.{"\n"}{"\n"}
-          You will also need to write some Java code and run some JUnit tests. An IDE like IntelliJ would be best here, but
-          even a text editor will work so long as you can run the code.{"\n"}{"\n"}
-          A github repository with all of this session's code, answers, Junit Tests, and UML diagrams is available here: https://github.com
+          You will also need to write some Java code and run some JUnit tests. An IDE like "IntelliJ" would be best here, but
+          even a text editor will work so long as you have Java installed, and can run the code.{"\n"}{"\n"}
+          A github repository with all of this session's code, answers, Junit Tests, and UML diagrams is available here: <b>https://github.com/Joerond-Bidenel/SDMLabSession</b>
         </Text>
 
         <Text style={styles.TextParagraph}>

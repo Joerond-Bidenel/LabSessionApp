@@ -59,33 +59,31 @@ export default function question2_1() {
 
             We've added a new class called "Waiting List".{"\n"}{"\n"}
 
-            The method "getSubscribed" returns an arraylist of subscribers. This is a standard "getter" method.
-            {"\n"}{"\n"}
+            There is a 1-to-1 association between Book and Waiting List; one book has exactly one waiting list.{"\n"}{"\n"}
 
-            The public notifySubscribers method takes in a String "message", and returns void. In here, we invoke the "update" method in the loanee, with whatever message book wants to update Loanees on.
-            {"\n"}{"\n"}
+            There is a aggregation arrow between WaitingList and Loanee, with a One-to-Many relationship. This indicates that a waiting list is made up of an unknown number of Loanees. There is an
+            aggregation rather than a composition as a Loanee can exist without the Waiting List. For example, see how LoanState is a composition, because when Book is deleted there is no need for the states to exist.{"\n"}{"\n"}
 
-            The public subscribe method takes in a Loanee, and returns void. We simply add the passed Loanee to the waiting List. There is no need to return anything. You could argue that a boolean for success would be helpful, though -
-            Especially if your logic for adding a Loanee was in the Waiting List.
+            Notice how we have no data structure defined for storing Loanees inside the Waiting List, because this is redundant/unnecessary repetition. The aggregation arrow tells us that this should exist implicitly - in the same way that there isn't a variable called "WaitingList" inside "Book".{"\n"}{"\n"}
+
+            The public subscribe method takes in a Loanee, and returns void. We simply add the passed Loanee to the waiting List. There is no need to return anything, though you could argue that a boolean for success would be helpful.
             {"\n"}{"\n"}
 
             The public unsubscribe method takes in a Loanee, and returns void. We simply remove the passed Loanee from the waiting List. Again, you could argue for a boolean instead of void.
             {"\n"}{"\n"}
 
-
-            There is a composition arrow between WaitingList and Loanee, with 1 Waiting list and * Loanees. This indicates that a waiting list is made up of an unknown number of Loanees.
-            Notice how we have no data structure defined for storing Loanees - The composition arrow tells us that this should exist. There is nothing wrong with defining a datastructure to store them, but it isn't needed.
+            The public notifySubscribers method takes in a String "message", and returns void. In here, we invoke the "update" method in the Loanee, with whatever message book wants to update Loanees on.
             {"\n"}{"\n"}
 
-            There is a 1-to-1 association between Book and Waiting List. A book has one waiting list. In Java, you would have a variable to store the waiting list object, but I have let the relationship define this.
-            {"\n"}{"\n"}
+            The method "getSubscribed" takes no input, and returns an arraylist of subscribers. This is a standard "getter" method that is needed for Java Tests.
+
 
 
 
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Once you've had a chance to review and finalise your code, head to the next question!
+            Move on to the next question once you are happy with your answer!
           </Text>
 
         </View>

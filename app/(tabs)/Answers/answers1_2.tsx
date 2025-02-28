@@ -44,38 +44,25 @@ export default function question1_2() {
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            The parts in RED are what we have added.
+            The parts in RED are what we have implemented.
           </Text>
 
-          <Text style={styles.TextParagraph}>
-            You’ll need to: {"\n"}{"\n"}
+          <View style={styles.imageContainer}>
+            <Image style={styles.image} source={require("../../images/UML1.png")}/>
+            <Text style={styles.FigureSubText}>Library Changes to Implement - Source: Github Repo</Text>
+          </View>
 
-            -	Implement the Loanee Interface{"\n"}{"\n"}
-
-            -	Ensure that the "Customer" classes implement the Loanee Interface. {"\n"}{"\n"}
-
-            -	Add the “update” method to the interface and the client classes.{"\n"}{"\n"}
-
-            o	For the Loanee Interface, the update method should return the message unaltered{"\n"}
-            	i.e “MessageSaysThis”{"\n"}{"\n"}
-
-            o	For PrivateCustomer, the update method should return the customer’s name prepended to the message, with a space{"\n"}
-            	i.e  “JohnSmith MessageSaysThis”{"\n"}{"\n"}
-
-            o	For SchoolLibrary, the update method should return the name and location of the customer prepended to the message, with spaces between them{"\n"}
-            	i.e “UniversityOfEdinburgh Edinburgh MessageSaysThis”{"\n"}{"\n"}
-
-
-          </Text>
 
           <Text style={styles.TextParagraph}>
-            The Repository contains test sets for this question, called "". {"\n"}
-            Run them, and they will give feedback on your code - if you're correct or what you're missing!
-            You can also check out the Github Branch for this question if you get stuck and want the answer.
-          </Text>
 
-          <Text style={styles.TextParagraph}>
-            Once you've had a chance to review and finalise your code, head to the next question!
+            You should run two test suites to check your work; "IntegrityTests" check that the system can loan and return books, while "LoaneeTests" check that you have implemented the "Loanee Interface" as described by the UML.{"\n"}{"\n"}
+
+            If all the tests pass, then you have completed this part of the session. If you are stuck, look over some of the resources on the observer pattern - linked on the "materials" page. If you are still stuck, then head to the
+            repo and download the "Question 2" Branch to skip this question.{"\n"}{"\n"}
+
+            Scroll down to, and click on, "Next Question" for a multiple choice question before we head into the next section.{"\n"}
+
+
           </Text>
 
         </View>

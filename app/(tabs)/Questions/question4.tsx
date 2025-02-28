@@ -44,51 +44,47 @@ export default function question1() {
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            Suppose you have a library, with many books, many copies of those books, and many customers that want to lend them.
-            Below you can see a diagram of this system – familiarise yourself with it, as we will be extending this, and editing the code it describes in the next questions!
+            Singleton is, conceptually, one of the easiest patterns that is taught in SDM. However, that doesn't mean you shouldn't learn it, or that it doesn't have its uses. {"\n"}{"\n"}
+
+            In fact, when I sat the "Advanced Database Systems" course after SDM and was asked to use the Singleton Pattern in a coursework, I found that though I knew exactly how it worked, I couldn't implement it from scratch!
 
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
+            <Image style={styles.image} source={require("../../images/UML3.png")}/>
             <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
           </View>
 
 
 
           <Text style={styles.TextParagraph}>
-            Customers are, of course, very interested in certain books and the library only has so many copies.
-            You don't want customers to have to come to the library every day to check availability, because they might waste many trips without the book being ready.
-            However, you don't want to alert everyone in the library system that "50 shades of Gray" is back in stock, because not everyone wants (or needs) to know this.{"\n"}
 
-            We might also have a wide variety of customers. We could have normal people,
-            other libraries that might want to trade books, schools that need resources, businesses et cetera. We need to cater to all of these.
+            Singleton has many uses. It allows us to have a single instance of something in the code. For example, you might want only a single class in the whole system that can read and write to a Database, or communicate with a server.
+            {"\n"}{"\n"}
+
+            It also allows you to have "Global State". This is sometimes considered bad practice in code, but can be really useful if well managed.
+            {"\n"}{"\n"}
+            Its third useful feature is Lazy Instantiation. Thanks to the structure of singleton, you never need to explicitly create it - and only call it when needed. Sometimes you never will, which can add efficiency to your code.
+            However, this does mean singleton technically breaks the Single Responsibility principle. It manages its own creation, and its lifecycle/access!
+
 
           </Text>
 
           <Text style={styles.TextParagraph}>
-            This is a prime application of the OBSERVER design pattern. Our customers - called observers - can be alerted about a specific book - called a Subject – when an action occurs.
-            In this case when a copy of the book is taken or returned. The observer pattern can be instantiated for each book,
-            so customers can be subscribed on the list for only books they are interested in.
-          </Text>
 
-          <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
-            <Text style={styles.FigureSubText}>Observer Pattern UML - Source: Refactoring.Guru</Text>
-          </View>
+            You might remember the "Gang of Four" - the group that came up with the first Design Patterns Book in the 80's.
+            They later considered removing singleton as a pattern entirely! They don't say why, but it could be due to the existence of Global State, or how singleton breaks the Single Responsibiliy Principle!
 
-          <Text style={styles.TextParagraph}>
-            There are many other obvious applications of the observer pattern - Youtube Subscriptions, social media feeds, mailing lists,
-            online auctions et cetera.{"\n"}
-            Also think about more abstract applications. When a gaming PC goes on sleep mode, it's monitors, speakers, lights, and fans are
-            observers, waiting on the keyboard, mouse, or power button Subjects to be pressed before turning on again.
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Your task in this section will be to implement the observer pattern to the example library system. You will model the pattern using some UML, write the code in Java,
-            and answer some questions about the implementation and design decisions. This will be broken down into small steps to help understand and solve the problem.
+
+            In this section, we'll have a look at adding the singleton pattern into the Library system - simulating a Database System that stores our books.
 
           </Text>
+
+
+
         </View>
       </View>
     </View>
@@ -97,8 +93,8 @@ export default function question1() {
         <Text style={styles.buttonText}>Help and Materials</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('multipleChoice', {number: 0, name: "amongus"});}}>
-        <Text style={styles.buttonText}>Start Question One</Text>
+      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('question4_1', {number: 5, name: "amongus"});}}>
+        <Text style={styles.buttonText}>Start Question Four</Text>
       </TouchableOpacity>
     </View>
 

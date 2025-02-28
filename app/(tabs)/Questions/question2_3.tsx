@@ -45,32 +45,40 @@ export default function question2_2() {
 
                         <Text style={styles.TextParagraph}>
 
-                            Now, we're done implementing the waiting list's features. The very last task is more open - lets link up the waiting list to the existing book loaning functionality.
+                            Now, we're done implementing the waiting list's features. The very last task is more open - lets actually use the pattern we just created!
 
                         </Text>
 
                         <View style={styles.imageContainer}>
-                            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
+                            <Image style={styles.image} source={require("../../images/UML2White.png")}/>
                             <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
                         </View>
 
 
                         <Text style={styles.TextParagraph}>
-                            You’ll need to:{"\n"}{"\n"}
+                            To fully realise the Observer Pattern, we need to add a few calls to it when actions occur. You might need to dig into the code and read the method descriptions to see where these calls would be appropriate!{"\n"}{"\n"}
                             -	Add a call to NotifySubscribers when:{"\n"}
-                            o	A book is returned: message parameter should be "Returned"{"\n"}
-                            o	The last book is loaned out: message parameter should be "All_Loaned"{"\n"}{"\n"}
+                            >	A book is returned: message parameter should be something like "Returned"{"\n"}
+                            >	The last book is loaned out: message parameter should be something like "All_Loaned"{"\n"}{"\n"}
 
-                            - Add a call to "Subscribe()" when a loanee tries to loan a book but there are no copies available{"\n"}
-                            - Add a call to "Unsubscribe()" when a loanee loans a book successfully{"\n"}
+                            - In the Book states "AvailableCopies" and  "NoCopiesAvailable":{"\n"}
+                            > Add a call to "subscribe()" when a loanee tries to loan a book but there are no copies available.{"\n"}
+                            > Add a call to "unsubscribe()" when a loanee loans a book successfully.{"\n"}{"\n"}
+
+                            After doing this, you should see that when you run the program via the main method, we can see the Loanees being notified when events occur. In a real system,
+                            we wouldn't have the console printing - instead these would be the Loanee classes taking actions and running methods.{"\n"}
+
+                            Add some more Loans, Returns, and Books to see these interactions!
 
                         </Text>
 
 
                         <Text style={styles.TextParagraph}>
-                            The Repository contains test sets for this question, called "". {"\n"}
-                            Run them, and they will give feedback on your code - if you're correct or what you're missing!
-                            You can also check out the Github Branch for this question if you get stuck and want the answer.
+                            Once you've implemented these calls, run all previous test sets to see if all features are still implemented correctly!
+                            {"\n"}{"\n"}
+
+                            The Repository contains test sets for this question in the "tests" folder.{"\n"}
+                            You can also check out the Github Branch for this question if you get stuck and want the answer.{"\n"}
                         </Text>
 
                         <Text style={styles.TextParagraph}>

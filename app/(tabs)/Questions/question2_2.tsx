@@ -49,28 +49,32 @@ export default function question2_2() {
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
+            <Image style={styles.image} source={require("../../images/UML2.png")}/>
             <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
           </View>
 
 
           <Text style={styles.TextParagraph}>
-            You’ll need to:{"\n"}{"\n"}
-            -	Add the new “Waiting List” Class and all its methods:{"\n"}
-            o	Subscribe adds a Loanee to an internal list{"\n"}
-            o	Unsubscribe removes the client from the internal list.{"\n"}
-            o	NotifySubscribers should invoke the “Update” method on the Loanee{"\n"}
+            For this task, you'll need to:{"\n"}{"\n"}
+
+            >	Add the new “Waiting List” Class into the "org.example" directory, and add all of the methods below:{"\n"}
+            ---->	"subscribe", to add a Loanee to the list{"\n"}
+            ---->	"unsubscribe", to remove the Loanee from the list.{"\n"}
+            ---->	"notifySubscribers", which invokes the “Update” method on all Loanees stored{"\n"}
+            ----> "getSubscribed", which returns an Arraylist of all Loanees{"\n"}{"\n"}
+
+            > Represent the relationship between book and Waiting list (i.e how does book represent/store it's waiting list?).
+
           </Text>
 
-          <Text style={styles.TextParagraph}>
-            You also need to create the relationship between book and Waiting list (i.e a book has a waiting list).
-          </Text>
 
 
           <Text style={styles.TextParagraph}>
-            The Repository contains test sets for this question, called "". {"\n"}
-            Run them, and they will give feedback on your code - if you're correct or what you're missing!
-            You can also check out the Github Branch for this question if you get stuck and want the answer.
+            Once you've implemented the features, run the previous test sets and the new <b>"WaitingListTests"</b> to see if all features are implemented correctly!
+            They will give feedback on your code - if you're correct or what you're missing!{"\n"}{"\n"}
+
+            The Repository contains test sets for this question in the "tests" folder.{"\n"}
+            You can also check out the Github Branch for this question if you get stuck and want the answer.{"\n"}
           </Text>
         </View>
       </View>

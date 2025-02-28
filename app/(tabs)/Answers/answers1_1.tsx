@@ -54,16 +54,16 @@ export default function question1_1() {
 
           <Text style={styles.TextParagraph}>
 
-            We've added a Loanee Interface. Notice how this is marked as &lt;&lt;Interface&gt;&gt;.{"\n"}{"\n"}
+            We've added a Loanee Interface. Notice how this is explicitly marked as an &lt;&lt;Interface&gt;&gt;.{"\n"}{"\n"}
 
-            We have implemented the "update" method in Loanee and the two implementing classes. It is a public method, so we need a "+" before the name, we take a single String parameter called "message", and output a String.
+            We have added the "update" method in the Loanee Interface. It is a public method, so we need a "+" before the name, we take a single String parameter called "message", and output a String.{"\n"}{"\n"}
 
-            You might see this as unneccesary repetition, and it is personal preference,
-            but this can help show that the method will be overwritten in the implementing classes.{"\n"}{"\n"}
-
+            The two "Customer" subclasses have an "implements" relationship with the interface. In this case, it is technically correct to implement the interface in the "Customer" superclass, but this was not the task.
+            There theoretically could be a customer that isn't a Loanee.{"\n"}{"\n"}
             The dotted line with a hollow arrowhead shows that we are implementing an interface. Be careful with the arrowhead, as it differentiates this from a Dependency.{"\n"}{"\n"}
 
-
+            The "update" method is explicitly added to the "PrivateCustomer" and "SchoolLibrary". Generally you shouldn't have this, as it is implied that the method is inherited from Loanee. However, as you see in the next task, we
+            override this method when we inherit it, so we need to add it to the UML explicitly.
 
           </Text>
 

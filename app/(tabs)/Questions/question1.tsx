@@ -42,8 +42,8 @@ export default function question1() {
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            Suppose you have a library, with many books, many copies of those books, and many customers that want to lend them to.
-            Below you can see a diagram of this system – familiarise yourself with it, as we will be extending this and editing the code it describes in the next questions!
+            Suppose you have a library, with many books, many copies of those books, and many customers that want to read them. Well, you might make a system to represent this and help with administration.
+            Below you can see a diagram of this system – familiarise yourself with it, as we will be extending this and editing the code it describes in the next questions! You'll find the diagram in the Git Repo under "UML/Starter"
 
           </Text>
 
@@ -65,9 +65,13 @@ export default function question1() {
           </Text>
 
           <Text style={styles.TextParagraph}>
-            This is a prime application of the OBSERVER design pattern. Our customers - called observers - can be alerted about a specific book - called a Subject – when an action occurs;
+            This is a prime application of the OBSERVER design pattern. Our prospective "Loanees" - called observers - can be alerted about a specific book - called a Subject – when an action occurs;
             In this case when a copy of the book is taken or returned. The observer pattern can be instantiated for each book,
-            so customers can be subscribed on the list for only books they are interested in.
+            so Loanees can be subscribed on the list for only books they are interested in. {"\n"}{"\n"}
+
+            This will involve adding two classes: a "Loanee" class that wants to observe an event in the "Book" class, and a "Waiting List" that book can use to handle adding, removing, and subscribing "Loanees". Book calls the waiting list when it wants to notify all the loanees that a change has occurred.
+            If you're unfamiliar with the Observer pattern and totally lost, I recommend giving the page about Observer on "Refactoring.Guru" a look.
+
           </Text>
 
           <View style={styles.imageContainer}>

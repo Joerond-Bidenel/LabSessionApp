@@ -46,40 +46,33 @@ export default function question2_1() {
           <Text style={styles.TextParagraph}>
             Now that we have a standard for Observers to follow via the interface, we need to add the features that let us notify them of available books. We will start
             by modifying the UML again. {"\n"}
-            We need to implement the “Waiting List” Class, where we’ll implement the features that let us add,
-            remove, and alert a set of “Loanee” objects when the Subject changes - in this case, when a change in book is observed.
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UML1.png")}/>
+            <Image style={styles.image} source={require("../../images/UML1White.png")}/>
             <Text style={styles.FigureSubText}>Library System to Extend - Source: Nathan Ross</Text>
           </View>
 
           <Text style={styles.TextParagraph}>
-            Add a new class Called “Waiting List” to the UML diagram, which should have a relationship to the “Book” class (as this is the subject we are observing).
+            We need to implement the “Waiting List” Class, where we’ll implement the features that let us add,
+            remove, and alert a set of “Loanee” objects when the Subject changes - in this case, when a change in book is observed.
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Add a relationship between Waiting List and the Loanee Interface - a waiting list has Loanees.
+            Add a new class Called “Waiting List” to the UML diagram, which should have a relationship to the “Book” class (as this is the subject we are observing).{"\n"}{"\n"}
+
+            Add a relationship between Waiting List and the Loanee Interface, as a waiting list has Loanees.{"\n"}{"\n"}
+
+            Add methods in the Waiting List for the following tasks. Come up with a sensible input and output parameter/type for each of them: {"\n"}
+            >	“subscribe”, for adding a Loanee{"\n"}
+            >	“unsubscribe”, for removing a Loanee{"\n"}
+            >	“notifySubscribers”, for alerting a set of Loanee Objects.{"\n"}
+            > "getSubscribed", which returns an ArrayList of Loanees (For the Java tests!){"\n"}
+
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Add methods in the Waiting List for the following tasks. Come up with a sensible input and output for each of them: {"\n"}{"\n"}
-            -	“Subscribe”, for adding a Loanee{"\n"}
-            -	“Unsubscribe”, for removing a Loanee{"\n"}
-            -	“NotifySubscribers”, for alerting a set of Loanee Objects that something has happened.{"\n"}
-            -   "getSubscribed", which returns an ArrayList of Loanees (I need this for the Java tests to work!)
-
-          </Text>
-
-          <Text style={styles.TextParagraph}>
-            The Repository contains test sets for this question, called "". {"\n"}
-            Run them, and they will give feedback on your code - if you're correct or what you're missing!
-            You can also check out the Github Branch for this question if you get stuck and want the answer.
-          </Text>
-
-          <Text style={styles.TextParagraph}>
-            Once you've had a chance to run the tests, review, and finalise your code, head to the next question!
+            Once you’ve made changes to the UML, move on to the next page. This will contain a diagram with the answers, and why we have made certain decisions.
           </Text>
 
         </View>

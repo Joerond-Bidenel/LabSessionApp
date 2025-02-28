@@ -9,6 +9,8 @@ import splash from "@/app/(tabs)/splash";
 import docs from "@/app/(tabs)/docs";
 //import help from "@/app/(tabs)/help";
 
+import thanks from "@/app/(tabs)/thanks";
+
 import multipleChoice from "@/app/(tabs)/multipleChoice";
 
 import question1 from "@/app/(tabs)/Questions/question1";
@@ -65,6 +67,7 @@ export default function index() {
           <Stack.Screen name="splash" component={splash} initialParams={{number: 1}} options={{title:"SDM Lab Session"}} />
             <Stack.Screen name="docs" component={docs} options={{title:"Help and Documentation"}}/>
             <Stack.Screen name="multipleChoice" component={multipleChoice} initialParams={{number: 1}} options={{title:"Multiple Choice question"}} />
+          <Stack.Screen name="thanks" component={thanks} initialParams={{number: 1}} options={{title:"Thank You So Much For to Playing My Game"}} />
 
             <Stack.Screen name="question1" component={question1} options={{title:"question1"}} initialParams={{title:"question1"}}/>
             <Stack.Screen name="question1_1" component={question1_1} options={{title:"question1_1"}} initialParams={{title:"question1_1"}}/>
