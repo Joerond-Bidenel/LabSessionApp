@@ -50,7 +50,7 @@ export default function question2_1() {
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UML2.png")}/>
+            <Image style={styles.image} source={require("../../images/UMLQuestionTwoChanges.png")}/>
             <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
           </View>
 
@@ -69,13 +69,13 @@ export default function question2_1() {
             The public subscribe method takes in a Loanee, and returns void. We simply add the passed Loanee to the waiting List. There is no need to return anything, though you could argue that a boolean for success would be helpful.
             {"\n"}{"\n"}
 
-            The public unsubscribe method takes in a Loanee, and returns void. We simply remove the passed Loanee from the waiting List. Again, you could argue for a boolean instead of void.
+            The public unsubscribe method takes in a Loanee, and returns void. We simply remove the passed Loanee from the Waiting List. Again, you could argue for a boolean instead of void.
             {"\n"}{"\n"}
 
-            The public notifySubscribers method takes in a String "message", and returns void. In here, we invoke the "update" method in the Loanee, with whatever message book wants to update Loanees on.
+            The public notifySubscribers method takes in a String "message", and returns void. In here, we invoke the "update" method on every Loanee in the Waiting List, passing on a message.
             {"\n"}{"\n"}
 
-            The method "getSubscribed" takes no input, and returns an arraylist of subscribers. This is a standard "getter" method that is needed for Java Tests.
+            The method "getSubscribed" takes no input, and returns an arraylist of subscribers. This is a standard "getter" method that is needed for Java tests later.
 
 
 

@@ -49,9 +49,52 @@ export default function question1() {
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/ObserverReGuru.png")}/>
+            <Image style={styles.image} source={require("../../images/UMLQuestionFourChanges.png")}/>
             <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
           </View>
+
+
+          <Text style={styles.TextParagraph}>
+            For this task, you'll need to:{"\n"}{"\n"}
+
+            >	Add the new “BooksDatabase” Class into the "org.example" directory{"\n"}{"\n"}
+
+            > Add a private ArrayList of String" called "books" {"\n"}{"\n"}
+
+            > Add a private static BooksDatabase variable called "instance" {"\n"}{"\n"}
+
+          </Text>
+
+
+          <Text style={styles.TextParagraph}>
+
+            > Add a private constructor. In it, you should: {"\n"}{"\n"}
+
+            --> Open the "database.csv" file. For this task we will hardcode the path - right-click and select "copy absolute path".
+
+            --> read each line - assume they are separated by a comma - and store them in the "books" arraylist.
+
+          </Text>
+
+
+
+
+          <Text style={styles.TextParagraph}>
+
+            > Add the public static "getInstance" method: {"\n"}{"\n"}
+
+            --> If the "instance" variable is null, then this should create and store a new BooksDatabase in it, then return the new instance.{"\n"}{"\n"}
+
+            --> If the "instance" variable is not null, then return the stored instance.{"\n"}{"\n"}
+
+          </Text>
+
+          <Text style={styles.TextParagraph}>
+
+            > Add the "getBook" method. In it, remove and return the first entry in the arraylist (index = 0) if possible.
+
+          </Text>
+
 
         </View>
       </View>

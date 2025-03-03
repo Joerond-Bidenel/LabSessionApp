@@ -50,23 +50,29 @@ export default function question2_2() {
                         </Text>
 
                         <View style={styles.imageContainer}>
-                            <Image style={styles.image} source={require("../../images/UML2White.png")}/>
+                            <Image style={styles.image} source={require("../../images/UMLQuestionTwo.png")}/>
                             <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
                         </View>
 
 
                         <Text style={styles.TextParagraph}>
-                            To fully realise the Observer Pattern, we need to add a few calls to it when actions occur. You might need to dig into the code and read the method descriptions to see where these calls would be appropriate!{"\n"}{"\n"}
-                            -	Add a call to NotifySubscribers when:{"\n"}
-                            >	A book is returned: message parameter should be something like "Returned"{"\n"}
-                            >	The last book is loaned out: message parameter should be something like "All_Loaned"{"\n"}{"\n"}
+                            To fully realise the Observer Pattern, we need to add calls to it when certain actions occur.
+                            You might need to dig into the code and read the method descriptions to see where these calls would be appropriate!{"\n"}{"\n"}
 
-                            - In the Book states "AvailableCopies" and  "NoCopiesAvailable":{"\n"}
-                            > Add a call to "subscribe()" when a loanee tries to loan a book but there are no copies available.{"\n"}
-                            > Add a call to "unsubscribe()" when a loanee loans a book successfully.{"\n"}{"\n"}
 
-                            After doing this, you should see that when you run the program via the main method, we can see the Loanees being notified when events occur. In a real system,
-                            we wouldn't have the console printing - instead these would be the Loanee classes taking actions and running methods.{"\n"}
+                            -	In Book, add a call to NotifySubscribers when:{"\n"}
+                            >	A book is returned: the message parameter should be something like "Returned"{"\n"}
+                            >	The last book is loaned out (When CopiesAvailable becomes zero): the message parameter should be something like "All_Loaned"{"\n"}{"\n"}
+
+                            - In the Library class' "loanBook" method:{"\n"}
+                            > Add a call to "subscribe()" when a customer tries to loan a book, but cannot{"\n"}
+                            > Add a call to "unsubscribe()" when a customer loans a book successfully.{"\n"}{"\n"}
+
+                            Note: Normally, you would need some checks to ensure that a Customer can be cast to Loanee, but in this specific case it is always safe to pass "(Loanee) customerObject".{"\n"}{"\n"}
+
+
+                            After doing this, run the program via the main method. We can see Loanees being notified when events occur! In a real system,
+                            we wouldn't have the console printing - instead this represents the Loanee classes taking unique actions and running methods based on the message.{"\n"}
 
                             Add some more Loans, Returns, and Books to see these interactions!
 
@@ -77,8 +83,8 @@ export default function question2_2() {
                             Once you've implemented these calls, run all previous test sets to see if all features are still implemented correctly!
                             {"\n"}{"\n"}
 
-                            The Repository contains test sets for this question in the "tests" folder.{"\n"}
-                            You can also check out the Github Branch for this question if you get stuck and want the answer.{"\n"}
+                            The Repository contains the test sets for this question in the "tests" folder incase you don't have them.{"\n"}
+                            You can also check out the Github Branch for this question if you get stuck and want to jump to the answer (look for the branch called "QuestionOneAnswers").{"\n"}
                         </Text>
 
                         <Text style={styles.TextParagraph}>

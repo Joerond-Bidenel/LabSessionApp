@@ -44,12 +44,12 @@ export default function question2_2() {
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            Now, we’re going to implement the changes to the diagram into the Java Code. For this task, please follow the names and structure of the exemplar diagram so that the automarker works properly.
-
+            Now, we’re going to implement the changes to the diagram into the Java Code.
+            For this task, please follow the names and structure of the answer diagram rather than your own, so that the automarker works properly!
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UML2.png")}/>
+            <Image style={styles.image} source={require("../../images/UMLQuestionTwoChanges.png")}/>
             <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
           </View>
 
@@ -60,21 +60,21 @@ export default function question2_2() {
             >	Add the new “Waiting List” Class into the "org.example" directory, and add all of the methods below:{"\n"}
             ---->	"subscribe", to add a Loanee to the list{"\n"}
             ---->	"unsubscribe", to remove the Loanee from the list.{"\n"}
-            ---->	"notifySubscribers", which invokes the “Update” method on all Loanees stored{"\n"}
-            ----> "getSubscribed", which returns an Arraylist of all Loanees{"\n"}{"\n"}
+            ---->	"notifySubscribers", which invokes the “update” method on all stored Loanees{"\n"}
+            ----> "getSubscribed", which returns an Arraylist of all Loanees in the Waiting List{"\n"}{"\n"}
 
-            > Represent the relationship between book and Waiting list (i.e how does book represent/store it's waiting list?).
+            > Represent the relationship between book and Waiting list (i.e how does book store its waiting list?).
 
           </Text>
 
 
 
           <Text style={styles.TextParagraph}>
-            Once you've implemented the features, run the previous test sets and the new <b>"WaitingListTests"</b> to see if all features are implemented correctly!
-            They will give feedback on your code - if you're correct or what you're missing!{"\n"}{"\n"}
+            Once you've implemented the features, run the previous test sets. Download/Move the <b>"WaitingListTests"</b> into the tests directory and run these too.
+            They will give feedback on your code - whether you're correct or what you're missing.{"\n"}{"\n"}
 
-            The Repository contains test sets for this question in the "tests" folder.{"\n"}
-            You can also check out the Github Branch for this question if you get stuck and want the answer.{"\n"}
+            The Repository contains the test sets for this question in the "tests" folder incase you don't have them.{"\n"}
+            You can also check out the Github Branch for this question if you get stuck and want to jump to the answer (look for the branch called "QuestionOneAnswers").{"\n"}
           </Text>
         </View>
       </View>

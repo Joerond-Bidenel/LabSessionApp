@@ -49,7 +49,7 @@ export default function question2_1() {
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UML1White.png")}/>
+            <Image style={styles.image} source={require("../../images/UMLQuestionOne.png")}/>
             <Text style={styles.FigureSubText}>Library System to Extend - Source: Nathan Ross</Text>
           </View>
 

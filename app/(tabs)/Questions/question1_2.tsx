@@ -45,7 +45,7 @@ export default function question1_2() {
 
           <Text style={styles.TextParagraph}>
             Now, we’re going to implement the changes to the diagram into the Java Code.
-            For this task, please follow the names and structure of the exemplar diagram so that the automarker works properly. Make sure the names are exact, too. For example, the "update" needs to be lowercase!
+            For this task, please follow the names and structure of the answer diagram rather than your own, so that the automarker works properly!
           </Text>
 
           <View style={styles.imageContainer}>
@@ -56,29 +56,30 @@ export default function question1_2() {
           <Text style={styles.TextParagraph}>
             You’ll need to implement the following features: {"\n"}{"\n"}
 
-            -	Create a new Java class for the Loanee Interface in the "org.example" folder{"\n"}{"\n"}
+            >	Create a new Java class for the Loanee Interface in the "org.example" folder{"\n"}{"\n"}
 
-            -	Ensure that the two subclasses "PrivateCustomer" and "SchoolLibrary" implement the Loanee Interface. {"\n"}{"\n"}
+            >	Ensure that the two subclasses "PrivateCustomer" and "SchoolLibrary" implement the Loanee Interface. {"\n"}{"\n"}
 
-            -   Create the "Update" method in the Loanee Interface{"\n"}
+            >   Create the "update" method in the Loanee Interface{"\n"}
 
-            o	For the Loanee Interface, the update method should print - via System.out.println() - and return the message unaltered, i.e “MessageSaysThis”{"\n"}{"\n"}
+            o	For the Loanee Interface, the update method body should print - via System.out.println() - the message unaltered.
+            i.e “MessageSaysThis”{"\n"}{"\n"}
 
-            o	For PrivateCustomer, override the update method so that it prints and returns customer’s name and the message, with a space between them,
+            o	For PrivateCustomer, override the update method so that it prints the customer’s name and the message, with a space between them.
             i.e  “JohnSmith MessageSaysThis”{"\n"}{"\n"}
 
-            o	For SchoolLibrary, override the update method so that it prints and returns the customer’s name, location, and the message, with a space between each,
+            o	For SchoolLibrary, override the update method so that it prints the customer’s name, location, and the message, with a space between each.
             i.e “UniversityOfEdinburgh Edinburgh MessageSaysThis”{"\n"}{"\n"}
 
 
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Once you've implemented the features, run the test sets called <b>"IntegrityTests"</b> and <b>"LoaneeTests"</b> and see if all features are implemented correctly!
-            They will give feedback on your code - if you're correct or what you're missing!{"\n"}{"\n"}
+            Once you've implemented the features, run the test sets called <b>"IntegrityTests"</b> and <b>"LoaneeTests"</b> to see if all features are implemented correctly.
+            They will give feedback on your code - whether you're correct or what you're missing.{"\n"}{"\n"}
 
-            The Repository contains test sets for this question in the "tests" folder.{"\n"}
-            You can also check out the Github Branch for this question if you get stuck and want the answer.{"\n"}
+            The Repository contains the test sets for this question in the "tests" folder incase you don't have them.{"\n"}
+            You can also check out the Github Branch for this question if you get stuck and want to jump to the answer (look for the branch called "QuestionOneAnswers").{"\n"}
           </Text>
 
           <Text style={styles.TextParagraph}>
@@ -94,7 +95,7 @@ export default function question1_2() {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('answers1_2', {number: 0, name: "amongus"});}}>
-        <Text style={styles.buttonText}>Answers</Text>
+        <Text style={styles.buttonText}>Get Answers</Text>
       </TouchableOpacity>
     </View>
 

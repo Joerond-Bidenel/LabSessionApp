@@ -56,21 +56,22 @@ export default function question1() {
 
           <Text style={styles.TextParagraph}>
             Customers are, of course, very interested in certain books and the library only has so many copies.
-            You don't want customers to have to come to the library every day to check availability, because they might waste many trips without the book being ready.
-            However, you don't want to alert everyone in the library system that "50 shades of Gray" is back in stock, because not everyone wants (or needs) to know this.{"\n"}
+            You don't want customers to have to come to the library every day to check availability, because they might waste many trips without the book being ready.{"\n"}{"\n"}
+            However, you don't want to alert everyone in the library system that "50 shades of Gray" is back in stock, because not everyone wants (or needs) to know this.{"\n"}{"\n"}
 
             We might also have a wide variety of customers. We could have normal people,
-            other libraries that might want to trade books, schools that need resources, businesses et cetera. We need to cater to all of these.
+            other libraries that might want to trade books, schools that need resources, businesses et cetera. They all expect different things from the system.
 
           </Text>
 
           <Text style={styles.TextParagraph}>
-            This is a prime application of the OBSERVER design pattern. Our prospective "Loanees" - called observers - can be alerted about a specific book - called a Subject – when an action occurs;
-            In this case when a copy of the book is taken or returned. The observer pattern can be instantiated for each book,
-            so Loanees can be subscribed on the list for only books they are interested in. {"\n"}{"\n"}
+            This is a prime application of the OBSERVER design pattern. Our prospective "Loanees" - called observers - can be alerted about a specific book - called a Subject – when an action occurs.
+            In this case when a copy of the book is taken or returned, we want to alert all "Loanees" that it is back in stock.
+            The observer pattern can be instantiated for each book, so Loanees can be subscribed on the list for only books they are interested in. {"\n"}{"\n"}
 
-            This will involve adding two classes: a "Loanee" class that wants to observe an event in the "Book" class, and a "Waiting List" that book can use to handle adding, removing, and subscribing "Loanees". Book calls the waiting list when it wants to notify all the loanees that a change has occurred.
-            If you're unfamiliar with the Observer pattern and totally lost, I recommend giving the page about Observer on "Refactoring.Guru" a look.
+            This will involve adding two classes to our system: a "Loanee" class that wants to observe an event in the "Book" class, and a "Waiting List" that book can use to handle adding, removing, and subscribing "Loanees".
+            Book calls the waiting list when Loanees on the list might want to know that a change has occurred.
+            If you're unfamiliar with the Observer pattern and totally lost, I recommend giving the page about Observer on "Refactoring.Guru" a look (see the "Materials" button below).
 
           </Text>
 
@@ -80,14 +81,14 @@ export default function question1() {
           </View>
 
           <Text style={styles.TextParagraph}>
-            Of course you dont <i>have</i> to use the observer pattern, but think of how many of these types of interactions we may have! Book waiting lists, new releases, author updates, library events, the list goes on.
-            If a new developer takes over this project and there are a million different ways the system models this type of interaction, then it will take ages for them to understand and maintain the system! This is why
-            we need this uniform pattern.
+            Of course you dont <i>have</i> to use the observer pattern in this scenario, but think of how many of these types of interactions we may have! Book waiting lists, new releases, author updates, library events, the list goes on.
+            If a new developer takes over this project and there are a million different ways the system models this same interaction, then it will take ages for them to understand and maintain the system! The pattern
+            gives us a uniform standard to stick to.
           </Text>
 
           <Text style={styles.TextParagraph}>
-            Your task in this section will be to implement the observer pattern to the example library system in the form of a book Waiting List. You will model the pattern using some UML, write the code in Java,
-            and answer some questions about the implementation and design decisions. This will be broken down into small steps to help understand and solve the problem.
+            Your task in this section will be to implement the observer pattern as the Waiting List for books, as described above. You will model the pattern using some UML, write the code in Java,
+            and answer some multiple choice questions about the implementation and design decisions. This will be broken down into small steps to help understand and solve the problem.
 
           </Text>
         </View>

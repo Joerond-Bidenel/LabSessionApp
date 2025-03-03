@@ -17,7 +17,6 @@ import question1 from "@/app/(tabs)/Questions/question1";
 import question1_1 from "@/app/(tabs)/Questions/question1_1";
 import question1_2 from "@/app/(tabs)/Questions/question1_2";
 
-import question2 from "@/app/(tabs)/Questions/question2";
 import question2_1 from "@/app/(tabs)/Questions/question2_1";
 import question2_2 from "@/app/(tabs)/Questions/question2_2";
 import question2_3 from "@/app/(tabs)/Questions/question2_3";
@@ -76,7 +75,6 @@ export default function index() {
             <Stack.Screen name="answers1_1" component={answers1_1} options={{title:"answers1_1"}} initialParams={{title:"question1_1"}}/>
             <Stack.Screen name="answers1_2" component={answers1_2} options={{title:"answers1_2"}} initialParams={{title:"question1_2"}}/>
 
-            <Stack.Screen name="question2" component={question2} options={{title:"question2"}} initialParams={{title:"question2"}}/>
             <Stack.Screen name="question2_1" component={question2_1} options={{title:"question2_1"}} initialParams={{title:"question2_1"}}/>
             <Stack.Screen name="question2_2" component={question2_2} options={{title:"question2_2"}} initialParams={{title:"question2_2"}}/>
             <Stack.Screen name="question2_3" component={question2_3} options={{title:"question2_3"}} initialParams={{title:"question2_3"}}/>

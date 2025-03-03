@@ -29,25 +29,27 @@ const Sidebar = sidebarProps => {
                 }}}
         />
 
-        <FlatList
-            contentContainerStyle={styles.list}
-            data={[{key:'State: Overview', value:'question3'}, {key:'State: Design Refactor', value: 'question3_1'}, {key:'State: Refactor Code', value: 'question3_2'}, {key:'State: Multiple Choice', value: 'multipleChoice'}]}
-            renderItem={({item}) =>{
-                if (sidebarProps.title == item.value){
-                    return(
-                        <TouchableOpacity style={styles.buttonSideThis} onPress={ () => {sidebarProps.navigation.navigate(item.value)}}>
-                            <Text style={styles.buttonText}>{item.key}</Text>
-                        </TouchableOpacity>
-                    )
-                }
-                else{
-                    return(
-                        <TouchableOpacity style={styles.buttonSide} onPress={ () => {sidebarProps.navigation.navigate(item.value)}}>
-                            <Text style={styles.buttonText}>{item.key}</Text>
-                        </TouchableOpacity>
-                    )
-                }}}
-        />
+        {/*State Links - removed prior to session because of incomplete state*/}
+
+        {/*<FlatList*/}
+        {/*    contentContainerStyle={styles.list}*/}
+        {/*    data={[{key:'State: Overview', value:'question3'}, {key:'State: Design Refactor', value: 'question3_1'}, {key:'State: Refactor Code', value: 'question3_2'}, {key:'State: Multiple Choice', value: 'multipleChoice'}]}*/}
+        {/*    renderItem={({item}) =>{*/}
+        {/*        if (sidebarProps.title == item.value){*/}
+        {/*            return(*/}
+        {/*                <TouchableOpacity style={styles.buttonSideThis} onPress={ () => {sidebarProps.navigation.navigate(item.value)}}>*/}
+        {/*                    <Text style={styles.buttonText}>{item.key}</Text>*/}
+        {/*                </TouchableOpacity>*/}
+        {/*            )*/}
+        {/*        }*/}
+        {/*        else{*/}
+        {/*            return(*/}
+        {/*                <TouchableOpacity style={styles.buttonSide} onPress={ () => {sidebarProps.navigation.navigate(item.value)}}>*/}
+        {/*                    <Text style={styles.buttonText}>{item.key}</Text>*/}
+        {/*                </TouchableOpacity>*/}
+        {/*            )*/}
+        {/*        }}}*/}
+        {/*/>*/}
 
         <FlatList
             contentContainerStyle={styles.list}

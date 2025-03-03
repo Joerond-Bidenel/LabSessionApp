@@ -114,10 +114,10 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
 
     //5 - Does State break LoD?
     const a6 = [
-        "No, because State is depends on book and book depends on Waiting List, so this is an implicit relationship.",
-        "Yes, because Book \"Owns\" WaitingList, so no other class should invoke it.",
+        "No, because Waiting List is associated with Book which is associated with Library, so this is an implicit relationship.",
+        "Yes, because each book \"Owns\" its Waiting List, so no other class should invoke it.",
         "No, because we only call Waiting List. We don't wait or depend on a response.",
-        "Yes, because the two states now can't operate or compile without the WaitingList existing.",
+        "Yes, because the Library now can't operate or compile without the WaitingList existing.",
     ]
     const s6 = [
         "Incorrect! By this reasoning, every class is connected, so UML associations would mean nothing in practice. The Law of Demeter is sometimes called the \"Two Dot Rule\" as you should only access methods within one association of the current class!",
@@ -146,16 +146,16 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
 
     //7 - Global State. Which is Not True?
     const a8 = [
-        "Global State adds Hidden Dependencies",
-        "Global State is inconsistent when immutable",
-        "Global State is hard to make changes to",
-        "Global State makes code less readable",
+        "Singleton is an outdated pattern",
+        "Singleton makes it easier to add hidden dependencies",
+        "Singleton breaks the Law of Demeter",
+        "Singleton makes code less readable",
     ]
     const s8 = [
-        "Incorrect! Badly designed global state often leads to many hidden dependencies",
-        "Correct! The whole point of Global State is that everything has access to a consistent set of data. Being immutable (unchangeable/static) helps this greatly, as we get inconsistency when the data changes.",
-        "Incorrect! Many things can rely on a global state. One change could change something on the other side of the system that you thought was unrelated!.",
-        "Incorrect! Global state can make code a tangle of dependencies, and hard-coded data that you struggle to track down."
+        "Incorrect! Just because its use is cautioned doesn't mean the pattern is bad! Use the right tool for the job, and sometimes the tool is Singleton.",
+        "Correct! Singleton is known for often adding hidden dependencies with its global state. Any class can access one instance, so it is easy to forget which classes can be affected by a change.",
+        "Incorrect! Singleton is designed so that it is the same object regardless of when or where it is accessed. This helps us avoid breaking the Law Of Demeter, as we can directly access the singleton without intermediary classes.",
+        "Incorrect! As a design pattern, singleton tries to make global state cleaner and more readable."
     ]
 
   const questions = [
@@ -169,10 +169,10 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
 
     "What tradeoff do we consider when implementing a pattern?",
 
-    "Say we add calls to subscribe and unsubscribe in the two \"LoanState\" classes of \"Book\", do we break the Law of Demeter?",
+    "If we call \"bookName.waitingList.subscribe(loanee)\" in the Library Class, would we be breaking the Law of Demeter?",
 
       "What SOLID Principle Does Singleton often break?",
-      "Which of these is not true when dealing with global state?"
+      "Why might we want to avoid using a Singleton?"
   ]
   const correctNumbers = [3, 0, 1, 5, 2, 3, 0, 1]
 
@@ -180,7 +180,7 @@ const QuestionBoxes = ({navigation, questionNo, answer, setAnswer}) => {
 
   const solutions = [s1, s2, s3, s4, s5, s6, s7, s8]
 
-  const nextPages = ["question2_1", "multipleChoice", "multipleChoice", "multipleChoice", "multipleChoice", "question3", "multipleChoice", "thanks"]
+  const nextPages = ["question2_1", "multipleChoice", "multipleChoice", "multipleChoice", "multipleChoice", "question4", "multipleChoice", "thanks"]
   const params = [0, 2, 3, 4, 5, 6, 7, 8, 9]
 
 

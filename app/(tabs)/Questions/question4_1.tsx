@@ -39,17 +39,17 @@ export default function question1() {
 
       {/*Question Text*/}
       <View style={styles.TextSection}>
-        <Text style={styles.TextHeader}>Question 4 - Design UML for the Singleton Pattern</Text>
+        <Text style={styles.TextHeader}>Question 3 - Design UML for the Singleton Pattern</Text>
 
         <View style={styles.TextSection}>
 
           <Text style={styles.TextParagraph}>
-            As usual, we'll start by adding some UML to the diagram.
+            As before, we'll start by adding some UML to the diagram.
 
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UML3.png")}/>
+            <Image style={styles.image} source={require("../../images/UMLQuestionTwo.png")}/>
             <Text style={styles.FigureSubText}>Library Example System UML - Source: Nathan Ross</Text>
           </View>
 
@@ -58,15 +58,20 @@ export default function question1() {
           <Text style={styles.TextParagraph}>
             We'll add a new class called "BooksDatabase" to the diagram. This will be our Singleton.
             {"\n"}{"\n"}
-            We add three methods to our singleton:{"\n"}
+
+            We add two variables to our singleton: {"\n"}
+            > A private static "instance" which stores an instance of the singleton{"\n"}
+            > A private ArrayList books, storing a list of books from a file{"\n"}{"\n"}
+
+            We then add three methods to our singleton:{"\n"}
             > A private constructor. Only the singleton should be able to create a new "itself".{"\n"}
 
-            > A getter method that acts as a constructor for any class using the singleton.{"\n"}
+            > A static getter method "getInstance" that acts as a "constructor" for any class that wants to use the singleton; returning the instance of BooksDatabase that the singleton manages{"\n"}
 
-            > A method "getBook" that takes in nothing, and returns a String representing the data of a book (say in JSON or csv format).{"\n"}
+            > A method "getBook" that takes in no parameters and returns a String representing a book from a file (say in JSON or csv format).{"\n"}
 
             {"\n"}
-            Finally, add a relationship between Library and the Singleton (assume Library is the only class that uses the singleton).
+            Finally, add a relationship between Library and the Singleton (assuming Library is the only class that uses the singleton).
 
           </Text>
 
@@ -81,8 +86,8 @@ export default function question1() {
         <Text style={styles.buttonText}>Help and Materials</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('question4_2', {number: 0, name: "amongus"});}}>
-        <Text style={styles.buttonText}>Next Question</Text>
+      <TouchableOpacity style={styles.buttonHelp} onPress={ () => {navigation.navigate('answers4_1', {number: 0, name: "amongus"});}}>
+        <Text style={styles.buttonText}>Get Answers</Text>
       </TouchableOpacity>
     </View>
 

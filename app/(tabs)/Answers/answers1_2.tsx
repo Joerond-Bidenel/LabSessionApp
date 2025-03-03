@@ -58,10 +58,9 @@ export default function question1_2() {
             You should run two test suites to check your work; "IntegrityTests" check that the system can loan and return books, while "LoaneeTests" check that you have implemented the "Loanee Interface" as described by the UML.{"\n"}{"\n"}
 
             If all the tests pass, then you have completed this part of the session. If you are stuck, look over some of the resources on the observer pattern - linked on the "materials" page. If you are still stuck, then head to the
-            repo and download the "Question 2" Branch to skip this question.{"\n"}{"\n"}
+            repo and download the "QuestionOneAnswers" Branch to skip this question.{"\n"}{"\n"}
 
             Scroll down to, and click on, "Next Question" for a multiple choice question before we head into the next section.{"\n"}
-
 
           </Text>
 

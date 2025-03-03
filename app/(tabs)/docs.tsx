@@ -42,19 +42,18 @@ export default function docs() {
         </Text>
 
         <Text style={styles.TextParagraph}>
-          Refactoring Guru has a description, explaination, and implementation of most design patterns. If you're struggling with the structure, implementation, or comprehension of a pattern, head to their website and have a look.{"\n"}{"\n"}
+          Refactoring Guru has a description, explaination, and implementation of most design patterns. If you're struggling with a pattern, head to their website and have a look.{"\n"}{"\n"}
 
           <b>https://refactoring.guru/design-patterns/observer {"\n"}
-
-          https://refactoring.guru/design-patterns/state{"\n"}
 
             https://refactoring.guru/design-patterns/singleton{"\n"}</b>
 
         </Text>
 
         <Text style={styles.TextParagraph}>
-          Wikipedia actually has some good resources on design patterns, including their implementation in different languages.{"\n"}{"\n"}
-          <b>https://en.wikipedia.org/wiki/Observer_pattern</b>
+          Wikipedia actually has some good resources on design patterns - including their implementations in different languages.{"\n"}{"\n"}
+          <b>https://en.wikipedia.org/wiki/Observer_pattern</b>{"\n"}
+          <b>https://en.wikipedia.org/wiki/Singleton_pattern</b>
         </Text>
 
       </View>

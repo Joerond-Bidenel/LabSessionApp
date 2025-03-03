@@ -48,7 +48,7 @@ export default function question1_1() {
           </Text>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require("../../images/UML1.png")}/>
+            <Image style={styles.image} source={require("../../images/UMLQuestionOneChanges.png")}/>
             <Text style={styles.FigureSubText}>Library Example System UML - Source: Github Repo</Text>
           </View>
 
@@ -56,13 +56,13 @@ export default function question1_1() {
 
             We've added a Loanee Interface. Notice how this is explicitly marked as an &lt;&lt;Interface&gt;&gt;.{"\n"}{"\n"}
 
-            We have added the "update" method in the Loanee Interface. It is a public method, so we need a "+" before the name, we take a single String parameter called "message", and output a String.{"\n"}{"\n"}
+            We have added the "update" method in the Loanee Interface. It is a public method, so we need a "+" before the name, we take a single String parameter called "message", and output nothing.{"\n"}{"\n"}
 
-            The two "Customer" subclasses have an "implements" relationship with the interface. In this case, it is technically correct to implement the interface in the "Customer" superclass, but this was not the task.
-            There theoretically could be a customer that isn't a Loanee.{"\n"}{"\n"}
-            The dotted line with a hollow arrowhead shows that we are implementing an interface. Be careful with the arrowhead, as it differentiates this from a Dependency.{"\n"}{"\n"}
+            The two "Customer" subclasses have an "implements" relationship with the interface. In this case, it is technically correct for the "Customer" superclass to implement it, but this was not specified.
+            There theoretically could be a customer that isn't a Loanee, and needs the methods.{"\n"}{"\n"}
+            The dotted line with a hollow arrowhead shows that we are implementing an interface. Be careful with the arrowhead, as it differentiates Implementation from a Dependency.{"\n"}{"\n"}
 
-            The "update" method is explicitly added to the "PrivateCustomer" and "SchoolLibrary". Generally you shouldn't have this, as it is implied that the method is inherited from Loanee. However, as you see in the next task, we
+            The "update" method is explicitly added to the "PrivateCustomer" and "SchoolLibrary" classes. Generally you shouldn't do this as it is implied that the method is inherited from Loanee. However, as you see in the next task, we
             override this method when we inherit it, so we need to add it to the UML explicitly.
 
           </Text>
